@@ -8,6 +8,8 @@
 #ifndef _BOUNDARIES_H
 #define _BOUNDARIES_H
 
+#include "globals.h"
+
 /**
  * @brief Defines the sides of the box.
  */

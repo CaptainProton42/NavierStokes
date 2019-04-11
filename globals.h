@@ -5,5 +5,5 @@
  * @brief Global variables that are shared by many components of the programm.
  */
 
-extern double i_max; ///< Lattice dimension in x-direction.
-extern double j_max; ///< Lattice dimension in y-direction.
+extern int i_max; ///< Lattice dimension in x-direction.
+extern int j_max; ///< Lattice dimension in y-direction.
