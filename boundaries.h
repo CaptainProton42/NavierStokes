@@ -1,14 +1,8 @@
 /**
  * @file boundaries.h
  * @author Hollweck, Wigg
- * @date 10 April 2019
+ * @date 11 April 2019
  * @brief Implements boundary conditions.
- *
- * Here typically goes a more extensive explanation of what the header
- * defines. Doxygens tags are words preceeded by either a backslash @\
- * or by an at symbol @@.
- * @see http://www.stack.nl/~dimitri/doxygen/docblocks.html
- * @see http://www.stack.nl/~dimitri/doxygen/commands.html
  */
 
 #ifndef _BOUNDARIES_H
@@ -26,7 +20,7 @@ extern enum {
 };
 
 /**
- * @brief Set no-slip boundary condition at the indicated side.
+ * @brief Set no-slip boundary conditions at the indicated side.
  * 
  * @param u Velocity lattice (x-direction). Expects a two-dimensional array.
  * @param v Velocity lattice (y-direction). Expects a two-dimensional array.
@@ -34,6 +28,21 @@ extern enum {
  * 
  * @return 0 on success.
  */
-extern int set_noslip(double** u, double**v, int side);
+
+extern int set_noslip(double** u, double** v, int side);
+
+/**
+ * @brief Set inflow boundary conditions at the indicated side.
+ * 
+ * @param u Velocity lattice (x-direction). Expects a two-dimensional array.
+ * @param v Velocity lattice (y-direction). Expects a two-dimensional array.
+ * @param side Which side to apply the boundary condition to. Should either be \p TOP, \p BOTTOM, \p LEFT, or \p RIGHT.
+ * @param u_fix x-component of the fixed velocity.
+ * @param v_fix y-component of the fixed velocity.
+ * 
+ * @return 0 on success.
+ */
+
+extern int set_inflow(double** u, double** v, double u_fix, double v_fix, int side);
 
 #endif
