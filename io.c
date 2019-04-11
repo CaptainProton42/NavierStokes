@@ -7,9 +7,14 @@
 double init_grid()
 {	
 
-	char ch;
+	int n = 20; // Maximal number of input parameters
+	FILE *f
+	f = fopen("parameters.txt", "r")
 
-	FILE *f = fopen("parameters.dat", "r")
+	double parameters[n];
+	int i;
+
+
 
    if (f == NULL)
    {
@@ -17,10 +22,27 @@ double init_grid()
       exit(EXIT_FAILURE);
    }
 
-   char *buf[100];
-   while (fscanf(f,"%*s %*s %s ",buf)==1)
-   	printf("%s\n", buf);
+   for (i = 0; i < n; i++)
+   {
+   	fscanf(f, "%d,",&parameters[i]);
+   }
 
    fclose(f);
-   return 0;
+
+   i_max = parameters[0];
+   j_max = paramteres[1];
+   a = parameters[2];
+   b = parametes[3];
+   Re = parameters[4];
+   T = parameters[5];
+
+   delx = a/i_max:
+   dely = b/j_max;
+   parameters[6] = delx;
+   parameters[7] = dely;
+
+   cells_number = (i_max + 1) * (j_max + 1);
+   parameters[8] = cells_number;
+
+   return parameters;
 }

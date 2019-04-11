@@ -14,12 +14,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-double init_grid;
-
-double init_del;
-
-double init_cellnumber;
-
-double init_physics;
+/**
+* Initializes the grid according to the following convention:
+	- parameters[0] = i_max
+	- parameters[1] = j_max
+	- parameters[2] = a
+	- parameters[3] = b
+	- parameters[4] = Re
+	- parameters[5] = T
+*/
+double init;
 
 
