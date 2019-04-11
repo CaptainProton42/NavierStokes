@@ -1,8 +1,12 @@
 #include "io.h"
 #include "globals.h"
+#include "memory.h"
+#include "integration.h"
+
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 double init()
 {	
@@ -45,4 +49,28 @@ double init()
    parameters[8] = cells_number;
 
    return parameters;
+}
+
+double output(double*** u, double*** v)
+{
+	int i, j;
+
+    FILE* fp_u,* fp_v;
+    fp_u = fopen("u.txt", "w");
+    fp_v = fopen("v.txt", "w");
+
+    // Rows first, then columns
+    for (j = 0; j < j_max; j++) {
+        for (i = 0; i < i_max; i++) {
+            fprintf(fp_u, "%.5f ", u[i][j]); // 5 decimal places
+            fprintf(fp_v, "%.5f ", v[i][j]);
+        }
+        fprintf(fp_u, "\n"); 
+        fprintf(fp_v, "\n");
+    }
+
+    fclose(fp_u);
+    fclose(fp_v);
+
+    return 0;
 }
