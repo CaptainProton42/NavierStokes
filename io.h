@@ -14,19 +14,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define Re /* Probably should go into main.c */
-#define T
-#define delt
-#define delx
-#define dely
+double init_grid;
 
-extern double i_max;
-extern double j_max;
+double init_del;
 
-extern double dimension_i;
-extern double dimension_j;
+double init_cellnumber;
 
-extern double cells_number;
-
+double init_physics;
 
 
