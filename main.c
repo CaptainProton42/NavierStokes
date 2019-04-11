@@ -11,6 +11,8 @@
  * @see http://www.stack.nl/~dimitri/doxygen/commands.html
  */
 
+#include "memory.h"
+
 /**
  * @brief Main function.
  * 

@@ -29,6 +29,7 @@ extern double** p; ///< Pressure lattice.
  * @param j_max Lattice dimension in y-direction.
  * @return 0 on finish.
  */
+
 extern int allocate_memory(int i_max, int j_max);
 
 #endif

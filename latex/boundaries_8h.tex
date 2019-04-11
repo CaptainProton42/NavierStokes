@@ -1,0 +1,60 @@
+\hypertarget{boundaries_8h}{}\section{boundaries.\+h File Reference}
+\label{boundaries_8h}\index{boundaries.\+h@{boundaries.\+h}}
+
+
+Implements boundary conditions.  
+
+
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{boundaries_8h_a06fc87d81c62e9abb8790b6e5713c55b}\label{boundaries_8h_a06fc87d81c62e9abb8790b6e5713c55b}} 
+enum \{ {\bfseries T\+OP} = 0, 
+{\bfseries B\+O\+T\+T\+OM} = 1, 
+{\bfseries L\+E\+FT} = 2, 
+{\bfseries R\+I\+G\+HT} = 3
+ \}\begin{DoxyCompactList}\small\item\em Defines the sides of the box. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{boundaries_8h_a0f368db36b7bb7a34dd3035224aee7ad}{set\+\_\+noslip} (double $\ast$$\ast$\hyperlink{memory_8h_a0f2aeac6016e514b2d5f807403e021a4}{u}, double $\ast$$\ast$\hyperlink{memory_8h_af4d037a1a2ce458635b6711394f91390}{v}, int side)
+\begin{DoxyCompactList}\small\item\em Set no-\/slip boundary condition at the indicated side. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implements boundary conditions. 
+
+\begin{DoxyAuthor}{Author}
+Hollweck, Wigg 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+10 April 2019 Here typically goes a more extensive explanation of what the header defines. Doxygens tags are words preceeded by either a backslash \textbackslash{} or by an at symbol @. 
+\end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\href{http://www.stack.nl/~dimitri/doxygen/docblocks.html}{\tt http\+://www.\+stack.\+nl/$\sim$dimitri/doxygen/docblocks.\+html} 
+
+\href{http://www.stack.nl/~dimitri/doxygen/commands.html}{\tt http\+://www.\+stack.\+nl/$\sim$dimitri/doxygen/commands.\+html} 
+\end{DoxySeeAlso}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{boundaries_8h_a0f368db36b7bb7a34dd3035224aee7ad}\label{boundaries_8h_a0f368db36b7bb7a34dd3035224aee7ad}} 
+\index{boundaries.\+h@{boundaries.\+h}!set\+\_\+noslip@{set\+\_\+noslip}}
+\index{set\+\_\+noslip@{set\+\_\+noslip}!boundaries.\+h@{boundaries.\+h}}
+\subsubsection{\texorpdfstring{set\+\_\+noslip()}{set\_noslip()}}
+{\footnotesize\ttfamily int set\+\_\+noslip (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{u,  }\item[{double $\ast$$\ast$}]{v,  }\item[{int}]{side }\end{DoxyParamCaption})}
+
+
+
+Set no-\/slip boundary condition at the indicated side. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Velocity lattice (x-\/direction). Expects a two-\/dimensional array. \\
+\hline
+{\em v} & Velocity lattice (y-\/direction). Expects a two-\/dimensional array. \\
+\hline
+{\em side} & Which side to apply the boundary condition to. Should either be {\ttfamily T\+OP}, {\ttfamily B\+O\+T\+T\+OM}, {\ttfamily L\+E\+FT}, or {\ttfamily R\+I\+G\+HT}. \\
+\hline
+\end{DoxyParams}
