@@ -14,19 +14,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define Re /* Probably should go into main.c */
-#define T
-#define delt
-#define delx
-#define dely
-
-extern double i_max;
-extern double j_max;
-
-extern double dimension_i;
-extern double dimension_j;
-
-extern double cells_number;
-
+/**
+* Initializes the grid according to the following convention:
+	- parameters[0] = i_max
+	- parameters[1] = j_max
+	- parameters[2] = a
+	- parameters[3] = b
+	- parameters[4] = Re
+	- parameters[5] = T
+*/
+double init;
 
 
