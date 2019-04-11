@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-double init_grid()
+double init()
 {	
 
 	int n = 20; // Maximal number of input parameters
