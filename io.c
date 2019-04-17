@@ -18,9 +18,9 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* delta
 	double* parameters = (double*) calloc(n, sizeof(double));
 
 	int i;
-	double delx;
-	double dely;
-	double delt;
+	double deltax;
+	double deltay;
+	double deltat;
 	double cells_number;
 
 
