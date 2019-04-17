@@ -15,6 +15,7 @@
 #include "io.h"
 #include "integration.h"
 #include "boundaries.h"
+#include "math.h"
 
 
 /**
@@ -24,9 +25,13 @@
  * @return 0 on exit.
  */
 
-int main() {
+int main()
+{
+	double** u;
+	double** v;
+	double** p;
 
-	init();
-	outout(u,v);
+	init(int i_max, int j_max, double a, double b, double Re, double T);
+	output(&u,&v);
     return 0;
 }

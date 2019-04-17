@@ -1,5 +1,5 @@
 #include "io.h"
-#include "globals.h"
+/*#include "globals.h"*/
 #include "memory.h"
 #include "integration.h"
 
@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <math.h>
 
-double* init()
+double* init(int i_max, int j_max, double a, double b, double Re, double T)
 {	
 
 	int n = 20; // Maximal number of input parameters
@@ -16,7 +16,12 @@ double* init()
 	f = fopen("parameters.txt", "r");
 
 	double* parameters = (double*) calloc(n, sizeof(double));
+
 	int i;
+	double delx;
+	double dely;
+	double delt;
+	double cells_number;
 
 
 
@@ -28,7 +33,7 @@ double* init()
 
    for (i = 0; i < n; i++)
    {
-   	fscanf(f, "%d,",&parameters[i]);
+   	fscanf(f, "%lf,",&parameters[i]);
    }
 
    fclose(f);
@@ -48,11 +53,11 @@ double* init()
    cells_number = (i_max + 1) * (j_max + 1);
    parameters[8] = cells_number;
 
-   print()
+   printf("Grid initialized!");
    return parameters;
 }
 
-double output(double** u, double** v)
+double output(int i_max, int j_max, double** u, double** v)
 {
 	int i, j;
 
@@ -73,5 +78,6 @@ double output(double** u, double** v)
     fclose(fp_u);
     fclose(fp_v);
 
+    printf("Output created!")	
     return 0;
 }

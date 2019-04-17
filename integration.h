@@ -5,10 +5,11 @@
  * @brief Stencils.
  */
 
+
 /**
 * @brief Donor-Cell stencil for del u^2/del x
 */
-double du2_dx(double** u, double** v, int i, int j, double delta_x, double gamma;
+double du2_dx(double** u, double** v, int i, int j, double delta_x, double gamma);
 
 double duv_dy(double** u, double** v, int i, int j, double delta_y, double gamma);
 

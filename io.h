@@ -25,12 +25,12 @@
 *	- parameters[4] = Re
 *	- parameters[5] = T
 */
-double init();
+double* init(int i_max, int j_max, double a, double b, double Re, double T);
 
 /**
 * @brief Writes grid-parameters to a file.
 */
-double output();
+double* output();
 
 
 

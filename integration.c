@@ -2,6 +2,10 @@
  * @brief Donor-Cell stencil for del u^2/del x.
  */
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h> 
+
 double du2_dx(double** u, double** v, int i, int j, double delta_x, double gamma) {
     double stencil1 = 0.5 * (u[i][j] + u[i+1][j]);
     double stencil2 = 0.5 * (u[i-1][j] + u[i][j]);

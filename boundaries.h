@@ -8,13 +8,12 @@
 #ifndef _BOUNDARIES_H
 #define _BOUNDARIES_H
 
-#include "globals.h"
 
 /**
  * @brief Defines the sides of the box.
  */
 
-extern enum {
+enum {
     TOP = 0,
     BOTTOM = 1,
     LEFT = 2,
@@ -31,7 +30,7 @@ extern enum {
  * @return 0 on success.
  */
 
-int set_noslip(double** u, double** v, int side);
+int set_noslip(int i_max, int j_max, double** u, double** v, int side);
 
 /**
  * @brief Set inflow boundary conditions at the indicated side.
@@ -45,6 +44,6 @@ int set_noslip(double** u, double** v, int side);
  * @return 0 on success.
  */
 
-int set_inflow(double** u, double** v, double u_fix, double v_fix, int side);
+int set_inflow(int i_max, int j_max, double** u, double** v, double u_fix, double v_fix, int side);
 
 #endif
