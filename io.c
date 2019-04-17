@@ -38,12 +38,12 @@ double* init(int i_max, int j_max, double a, double b, double Re, double T)
 
    fclose(f);
 
-   i_max = parameters[0];
-   j_max = parameters[1];
-   a = parameters[2];
-   b = parameters[3];
-   Re = parameters[4];
-   T = parameters[5];
+   parameters[0] = i_max;
+   parameters[1] = j_max;
+   parameters[2] = a;
+   parameters[3] = b;
+   parameters[4] = Re;
+   parameters[5] = T;
 
    delx = a/i_max;
    dely = b/j_max;
@@ -57,7 +57,7 @@ double* init(int i_max, int j_max, double a, double b, double Re, double T)
    return parameters;
 }
 
-double output(int i_max, int j_max, double** u, double** v)
+double* output(int i_max, int j_max, double** u, double** v)
 {
 	int i, j;
 
@@ -78,6 +78,6 @@ double output(int i_max, int j_max, double** u, double** v)
     fclose(fp_u);
     fclose(fp_v);
 
-    printf("Output created!")	
+    printf("Output created!");	
     return 0;
 }
