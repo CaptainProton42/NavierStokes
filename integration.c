@@ -125,13 +125,19 @@ double L2(double** m, int i_max, int j_max) {
  */
 int SOR(double** p, int i_max, int j_max, double delta_x, double delta_y, double** res, double** RHS, double omega, double eps) {
     int i, j;
-    double norm_p = L2(p, i_max+2, j_max+2);    // L2 norm of grid.
+    double norm_p = L2(p, i_max, j_max);    // L2 norm of grid.
     while (1) {
         // Fill ghost cells with values of neighbourng cells for new iteration step.
-        p[0][j] = p[1][j];
-        p[i_max+1][j] = p[i_max][j];
-        p[i][0] = p[i][1];
-        p[i][j_max+1] = p[i][j_max];
+        for (j = 1; j <= j_max; j++)
+        {
+            p[0][j] = p[1][j];
+            p[i_max+1][j] = p[i_max][j];
+        }
+        for (i = 1; i <= i_max; i++) {
+            p[i][0] = p[i][1];
+            p[i][j_max+1] = p[i][j_max];
+        }
+
         
         // Iterate through grid a calculate new values.
         for (i = 1; i <= i_max; i++) {
