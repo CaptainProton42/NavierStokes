@@ -38,6 +38,6 @@ int main()
     double T; // Max time.
 
 	init(&i_max, &j_max, &a, &b, &Re, &T, &delta_x, &delta_y);
-	output(&u,&v);
+	output(i_max, j_max, u, v);
     return 0;
 }

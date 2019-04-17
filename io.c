@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <math.h>
 
-int init(int* i_max, int* j_max, double* a, double* b, double* Re, int* T, double* delta_x, double* delta_y)
+int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* delta_x, double* delta_y)
 {	
 
 	int n = 20; // Maximal number of input parameters
