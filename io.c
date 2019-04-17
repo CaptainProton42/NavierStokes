@@ -80,3 +80,21 @@ int output(int i_max, int j_max, double** u, double** v, double** p)
     printf("Output created!\n");	
     return 0;
 }
+
+double smallest_number(int i_max, int j_max, double** u)
+{
+   	double min = u[0][0];
+   	int i,j;
+
+   	for (i = 1; x < i_max; i++)
+   	{
+       	for (j = 1; y < j_max; j++)
+       	{
+           	if (min > u[i][j])
+           	{
+               	min = u[i][j];
+           	}
+    	} 
+    }
+	return min;
+}

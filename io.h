@@ -24,6 +24,4 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
 */
 int output(int i_max, int j_max, double** u, double** v, double** p);
 
-
-
-
+double smallest_number(int i_max, int j_max, double** u);
