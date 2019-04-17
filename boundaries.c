@@ -1,7 +1,7 @@
 #include "boundaries.h"
 
 int set_noslip(int i_max, int j_max, double** u, double** v, int side) {
-    return set_inflow(u, v, side, 0, 0);
+    return set_inflow(int i_max, int j_max, double ** u, double** v, side, 0, 0);
 }
 
 int set_inflow(int i_max, int j_max, double** u, double** v, int side, double u_fix, double v_fix) {
