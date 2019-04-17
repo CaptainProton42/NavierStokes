@@ -1,7 +1,4 @@
-/**
- * @brief Donor-Cell stencil for del u^2/del x.
- */
-
+#include "integration.h"
 double du2_dx(double** u, double** v, int i, int j, double delta_x, double gamma) {
     double stencil1 = 0.5 * (u[i][j] + u[i+1][j]);
     double stencil2 = 0.5 * (u[i-1][j] + u[i][j]);
@@ -117,7 +114,7 @@ double L2(double** m, int i_max, int j_max) {
 /**
  * @brief SOR.
  */
-double SOR(double** u, double** v, double** p, int i_max, int j_max, double delta_x, double delta_y, double** RHS, double omega, double eps) {
+int SOR(double** u, double** v, double** p, int i_max, int j_max, double delta_x, double delta_y, double** RHS, double omega, double eps) {
     int i, j;
     double** res = (double**) calloc((i_max + 2) * (j_max + 2), sizeof(double));    // Residuum grid.
     double norm_p = L2(p, i_max+2, j_max+2);    // L2 norm of grid.
