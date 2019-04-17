@@ -31,7 +31,7 @@ extern enum {
  * @return 0 on success.
  */
 
-extern int set_noslip(double** u, double** v, int side);
+int set_noslip(double** u, double** v, int side);
 
 /**
  * @brief Set inflow boundary conditions at the indicated side.
@@ -45,6 +45,6 @@ extern int set_noslip(double** u, double** v, int side);
  * @return 0 on success.
  */
 
-extern int set_inflow(double** u, double** v, double u_fix, double v_fix, int side);
+int set_inflow(double** u, double** v, double u_fix, double v_fix, int side);
 
 #endif
