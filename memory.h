@@ -24,6 +24,6 @@
  * @return 0 on finish.
  */
 
-int allocate_memory(double*** u, double*** v, double*** p, double*** res, double*** RHS, int i_max, int j_max);
+int allocate_memory(double*** u, double*** v, double*** p, double*** res, double*** RHS, double*** F, double*** G, int i_max, int j_max);
 
 #endif

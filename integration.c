@@ -79,14 +79,15 @@ double FG(double** F, double** G, double** u, double** v, int i_max, int j_max, 
                         d2u_dy2(u, i, j, delta_y)) -
                         du2_dx(u, v, i, j, delta_x, gamma) -
                         duv_dy(u, v, i, j, delta_y, gamma) +
-                        g_x);
-            
+                        g_x);      
             G[i][j] = v[i][j] +
                         delta_t * (1/Re * (d2v_dx2(v, i, j, delta_x) +
                         d2v_dy2(v, i, j, delta_y)) -
                         duv_dx(u, v, i, j, delta_x, gamma) -
                         dv2_dy(u, v, i, j, delta_y, gamma) +
                         g_y);
+
+            // This part quickly segfaults since there are no values for u_imax+1 and v_jmax+1.
         }
     }
 }

@@ -43,7 +43,12 @@ int main()
     double T; // Max time.
 
 	init(&i_max, &j_max, &a, &b, &Re, &T, &delta_x, &delta_y);
-    allocate_memory(&u, &v, &p, &res, &RHS, i_max, j_max);
+
+    printf("Initialized!\n");
+
+    allocate_memory(&u, &v, &p, &res, &RHS, &F, &G, i_max, j_max);
+
+    printf("Memory allocated.\n");
 
     // Steps.
     delta_t = 0.01; // const timestep for now
@@ -59,8 +64,12 @@ int main()
         set_noslip(i_max, j_max, u, v, BOTTOM);
         set_inflow(i_max, j_max, u, v, TOP, 0, 1);
 
+        printf("Conditions set!\n");
+
         // Calculate F and G.
         FG(F, G, u, v, i_max, j_max, Re, g_x, g_y, delta_t, delta_x, delta_y, gamma);
+
+        printf("F, G calculated!\n");
 
         // RHS of Poission equation.
         for (i = 1; i <= i_max; i++ ) {
@@ -69,7 +78,11 @@ int main()
             }
         }
 
+        printf("RHS calculated!\n");
+
         SOR(p, i_max, j_max, delta_x, delta_y, res, RHS, 1.5, 0.1);
+
+        printf("SOR complete!\n");
 
         // Update velocities.
         for (i = 1; i <= i_max; i++ ) {
@@ -78,6 +91,8 @@ int main()
                 v[i][j] = G[i][j] - delta_t * dp_dy(p, i, j, delta_y);
             }
         }
+
+        printf("Velocities updatet!\n");
 
 
 
