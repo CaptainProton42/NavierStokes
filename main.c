@@ -31,7 +31,13 @@ int main()
 	double** v;
 	double** p;
 
-	init(i_max, j_max, a, b, Re, T);
+    int i_max, j_max; // Dimensions of the grid.
+    double a, b; // Sizes of the grid.
+    double Re; // Reynolds number;
+    double delta_t, delta_x, delta_y; // Step sizes.
+    double T; // Max time.
+
+	init(&i_max, &j_max, &a, &b, &Re, &T, &delta_x, &delta_y);
 	output(&u,&v);
     return 0;
 }
