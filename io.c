@@ -48,6 +48,7 @@ double init()
    cells_number = (i_max + 1) * (j_max + 1);
    parameters[8] = cells_number;
 
+   print()
    return parameters;
 }
 

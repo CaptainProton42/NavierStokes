@@ -12,6 +12,10 @@
  */
 
 #include "memory.h"
+#include "io.h"
+#include "integration.h"
+#include "boundaries.h"
+
 
 /**
  * @brief Main function.
@@ -21,5 +25,8 @@
  */
 
 int main() {
+
+	init();
+	
     return 0;
 }
