@@ -31,6 +31,11 @@ int main()
 	double** v;
 	double** p;
 
+    double** F;
+    double** G;
+    double** res;
+    double** RHS;
+
     int i_max, j_max; // Dimensions of the grid.
     double a, b; // Sizes of the grid.
     double Re; // Reynolds number;
@@ -38,16 +43,46 @@ int main()
     double T; // Max time.
 
 	init(&i_max, &j_max, &a, &b, &Re, &T, &delta_x, &delta_y);
-    allocate_memory(&u, &v, &p, i_max, j_max);
-    printf("Setting boundary conditions...\n");
-    set_noslip(i_max, j_max, u, v, LEFT);
-    printf("Left side set!\n");
-    set_noslip(i_max, j_max, u, v, RIGHT);
-    printf("Right side set!\n");
-    set_noslip(i_max, j_max, u, v, BOTTOM);
-    printf("Bottom side set!\n");
-    set_inflow(i_max, j_max, u, v, TOP, 0, 1);
-    printf("Top side set!\n");
+    allocate_memory(&u, &v, &p, &res, &RHS, i_max, j_max);
+
+    // Steps.
+    delta_t = 0.01; // const timestep for now
+    double g_x = 0.0;
+    double g_y = -9.81;
+    double gamma = 1;
+    double t = 0;
+    int i, j;
+    while (t < T) {
+        // Set boundary conditions.
+        set_noslip(i_max, j_max, u, v, LEFT);
+        set_noslip(i_max, j_max, u, v, RIGHT);
+        set_noslip(i_max, j_max, u, v, BOTTOM);
+        set_inflow(i_max, j_max, u, v, TOP, 0, 1);
+
+        // Calculate F and G.
+        FG(F, G, u, v, i_max, j_max, Re, g_x, g_y, delta_t, delta_x, delta_y, gamma);
+
+        // RHS of Poission equation.
+        for (i = 1; i <= i_max; i++ ) {
+            for (j = 1; j <= j_max; j++) {
+                RHS[i][j] = 1.0 / delta_t * ((F[i][j] - F[i-1][j])/delta_x + (G[i][j] - G[i][j-1])/delta_y);
+            }
+        }
+
+        SOR(p, i_max, j_max, delta_x, delta_y, res, RHS, 1.5, 0.1);
+
+        // Update velocities.
+        for (i = 1; i <= i_max; i++ ) {
+            for (j = 1; j <= j_max; j++) {
+                u[i][j] = F[i][j] - delta_t * dp_dx(p, i, j, delta_x);
+                v[i][j] = G[i][j] - delta_t * dp_dy(p, i, j, delta_y);
+            }
+        }
+
+
+
+        t += delta_t;
+    }
 
 	output(i_max, j_max, u, v, p);
     return 0;

@@ -17,11 +17,13 @@
  * @param u Velocity lattice x-component.
  * @param v Velociry lattice y-component.
  * @param p pressure lattice.
+ * @param residuum grid.
+ * @param grid storing RHS of poission equation.
  * @param i_max Lattice dimension in x-direction.
  * @param j_max Lattice dimension in y-direction.
  * @return 0 on finish.
  */
 
-int allocate_memory(double*** u, double*** v, double*** p, int i_max, int j_max);
+int allocate_memory(double*** u, double*** v, double*** p, double*** res, double*** RHS, int i_max, int j_max);
 
 #endif

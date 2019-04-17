@@ -1,12 +1,9 @@
-/**
- * @brief Donor-Cell stencil for del u^2/del x.
- */
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h> 
 
 #include "integration.h"
+
 double du2_dx(double** u, double** v, int i, int j, double delta_x, double gamma) {
     double stencil1 = 0.5 * (u[i][j] + u[i+1][j]);
     double stencil2 = 0.5 * (u[i-1][j] + u[i][j]);
@@ -73,22 +70,25 @@ double d2v_dy2(double** v, int i, int j, double delta_y) {
     return (v[i][j+1] - 2 * v[i][j] + v[i][j-1]) / (delta_y*delta_y);
 }
 
-double F(double** u, double** v, int i, int j, double Re, double g_x, double delta_t, double delta_x, double delta_y, double gamma) {
-    return u[i][j] +
-            delta_t * (1/Re * (d2u_dx2(u, i, j, delta_x) +
-             d2u_dy2(u, i, j, delta_y)) -
-             du2_dx(u, v, i, j, delta_x, gamma) -
-             duv_dy(u, v, i, j, delta_y, gamma) +
-             g_x);
-}
-
-double G(double** u, double** v, int i, int j, double Re, double g_y, double delta_t, double delta_x, double delta_y, double gamma) {
-    return v[i][j] +
-            delta_t * (1/Re * (d2v_dx2(v, i, j, delta_x) +
-             d2v_dy2(v, i, j, delta_y)) -
-             duv_dx(u, v, i, j, delta_x, gamma) -
-             dv2_dy(u, v, i, j, delta_y, gamma) +
-             g_y);
+double FG(double** F, double** G, double** u, double** v, int i_max, int j_max, double Re, double g_x, double g_y, double delta_t, double delta_x, double delta_y, double gamma) {
+    int i, j;
+    for (i = 1; i <= i_max; i++) {
+        for(j = 1; j <= j_max; j++) {
+            F[i][j] = u[i][j] +
+                        delta_t * (1/Re * (d2u_dx2(u, i, j, delta_x) +
+                        d2u_dy2(u, i, j, delta_y)) -
+                        du2_dx(u, v, i, j, delta_x, gamma) -
+                        duv_dy(u, v, i, j, delta_y, gamma) +
+                        g_x);
+            
+            G[i][j] = v[i][j] +
+                        delta_t * (1/Re * (d2v_dx2(v, i, j, delta_x) +
+                        d2v_dy2(v, i, j, delta_y)) -
+                        duv_dx(u, v, i, j, delta_x, gamma) -
+                        dv2_dy(u, v, i, j, delta_y, gamma) +
+                        g_y);
+        }
+    }
 }
 
 /**
@@ -122,9 +122,8 @@ double L2(double** m, int i_max, int j_max) {
 /**
  * @brief SOR.
  */
-int SOR(double** u, double** v, double** p, int i_max, int j_max, double delta_x, double delta_y, double** RHS, double omega, double eps) {
+int SOR(double** p, int i_max, int j_max, double delta_x, double delta_y, double** res, double** RHS, double omega, double eps) {
     int i, j;
-    double** res = (double**) calloc((i_max + 2) * (j_max + 2), sizeof(double));    // Residuum grid.
     double norm_p = L2(p, i_max+2, j_max+2);    // L2 norm of grid.
     while (1) {
         // Fill ghost cells with values of neighbourng cells for new iteration step.

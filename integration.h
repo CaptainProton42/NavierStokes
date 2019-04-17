@@ -28,10 +28,7 @@ double d2v_dx2(double** v, int i, int j, double delta_x);
 
 double d2v_dy2(double** v, int i, int j, double delta_y);
 
-double F(double** u, double** v, int i, int j, double Re, double g_x, double delta_t, double delta_x, double delta_y, double gamma);
-
-double G(double** u, double** v, int i, int j, double Re, double g_y, double delta_t, double delta_x, double delta_y, double gamma);
-
+double FG(double** F, double** G, double** u, double** v, int i_max, int j_max, double Re, double g_x, double g_y, double delta_t, double delta_x, double delta_y, double gamma);
 /**
  * @brief Forward difference stencil for dp/dx.
  */
@@ -45,4 +42,4 @@ double dp_dy(double** p, int i, int j, double delta_y);
 /**
  * @brief SOR.
  */
-int SOR(double** u, double** v, double** p, int i_max, int j_max, double delta_x, double delta_y, double** RHS, double omega, double eps);
+int SOR(double** p, int i_max, int j_max, double delta_x, double delta_y, double** res, double** RHS, double omega, double eps);
