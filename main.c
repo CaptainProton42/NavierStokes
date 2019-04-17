@@ -31,7 +31,7 @@ int main()
 	double** v;
 	double** p;
 
-	init(int i_max, int j_max, double a, double b, double Re, double T);
+	init(i_max, j_max, a, b, Re, T);
 	output(&u,&v);
     return 0;
 }
