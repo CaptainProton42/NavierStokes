@@ -44,6 +44,6 @@ int set_noslip(int i_max, int j_max, double** u, double** v, int side);
  * @return 0 on success.
  */
 
-int set_inflow(int i_max, int j_max, double** u, double** v, double u_fix, double v_fix, int side);
+int set_inflow(int i_max, int j_max, double** u, double** v, int side double u_fix, double v_fix);
 
 #endif
