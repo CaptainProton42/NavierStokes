@@ -8,14 +8,14 @@
 #include <stdio.h>
 #include <math.h>
 
-double init()
+double* init()
 {	
 
 	int n = 20; // Maximal number of input parameters
-	FILE *f
-	f = fopen("parameters.txt", "r")
+	FILE *f;
+	f = fopen("parameters.txt", "r");
 
-	double parameters[n];
+	double* parameters = (double*) calloc(n, sizeof(double));
 	int i;
 
 
@@ -34,13 +34,13 @@ double init()
    fclose(f);
 
    i_max = parameters[0];
-   j_max = paramteres[1];
+   j_max = parameters[1];
    a = parameters[2];
-   b = parametes[3];
+   b = parameters[3];
    Re = parameters[4];
    T = parameters[5];
 
-   delx = a/i_max:
+   delx = a/i_max;
    dely = b/j_max;
    parameters[6] = delx;
    parameters[7] = dely;
