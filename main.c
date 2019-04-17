@@ -27,6 +27,6 @@
 int main() {
 
 	init();
-	
+	outout(u,v);
     return 0;
 }
