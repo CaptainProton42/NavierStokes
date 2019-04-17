@@ -22,7 +22,7 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
 /**
 * @brief Writes grid values to disk.
 */
-int output(int i_max, int j_max, double** u, double** v);
+int output(int i_max, int j_max, double** u, double** v, double** p);
 
 
 

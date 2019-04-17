@@ -38,6 +38,17 @@ int main()
     double T; // Max time.
 
 	init(&i_max, &j_max, &a, &b, &Re, &T, &delta_x, &delta_y);
-	output(i_max, j_max, u, v);
+    allocate_memory(&u, &v, &p, i_max, j_max);
+    printf("Setting boundary conditions...\n");
+    set_noslip(i_max, j_max, u, v, LEFT);
+    printf("Left side set!\n");
+    set_noslip(i_max, j_max, u, v, RIGHT);
+    printf("Right side set!\n");
+    set_noslip(i_max, j_max, u, v, BOTTOM);
+    printf("Bottom side set!\n");
+    set_inflow(i_max, j_max, u, v, TOP, 0, 1);
+    printf("Top side set!\n");
+
+	output(i_max, j_max, u, v, p);
     return 0;
 }

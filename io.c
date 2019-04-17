@@ -51,27 +51,32 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
    return 0;
 }
 
-int output(int i_max, int j_max, double** u, double** v)
+int output(int i_max, int j_max, double** u, double** v, double** p)
 {
 	int i, j;
 
-    FILE* fp_u,* fp_v;
+    FILE* fp_u,* fp_v, * fp_p;
     fp_u = fopen("u.txt", "w");
     fp_v = fopen("v.txt", "w");
+    fp_p = fopen("p.txt", "w");
+
 
     // Rows first, then columns
-    for (j = 0; j < j_max; j++) {
-        for (i = 0; i < i_max; i++) {
-            fprintf(fp_u, "%.5f ", u[i][j]); // 5 decimal places
-            fprintf(fp_v, "%.5f ", v[i][j]);
+    for (j = 0; j < j_max + 2; j++) {
+        for (i = 0; i < i_max + 2; i++) {
+            if (i < i_max + 1) fprintf(fp_u, "%.5f ", u[i][j]); // 5 decimal places
+            if (j < j_max + 1) fprintf(fp_v, "%.5f ", v[i][j]);
+            fprintf(fp_p, "%.5f ", p[i][j]);
         }
         fprintf(fp_u, "\n"); 
         fprintf(fp_v, "\n");
+        fprintf(fp_p, "\n");
     }
 
     fclose(fp_u);
     fclose(fp_v);
+    fclose(fp_p);
 
-    printf("Output created!");	
+    printf("Output created!\n");	
     return 0;
 }
