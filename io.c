@@ -51,7 +51,7 @@ double* init()
    return parameters;
 }
 
-double output(double*** u, double*** v)
+double output(double** u, double** v)
 {
 	int i, j;
 
