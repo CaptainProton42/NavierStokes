@@ -15,22 +15,14 @@
 #include <stdio.h>
 
 /**
-* @brief Initializes the parameters in globals.h
-*
-* Initializes the parameters according to the following convention:
-*	- parameters[0] = i_max
-*	- parameters[1] = j_max
-*	- parameters[2] = a
-*	- parameters[3] = b
-*	- parameters[4] = Re
-*	- parameters[5] = T
+* @brief Initializes given parameters.
 */
-double* init(int i_max, int j_max, double a, double b, double Re, double T);
+int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* delta_t, int* N, double* delta_x, double* delta_y);
 
 /**
-* @brief Writes grid-parameters to a file.
+* @brief Writes grid values to disk.
 */
-double* output();
+int output(int i_max, int j_max, double** u, double** v);
 
 
 

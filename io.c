@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <math.h>
 
-double* init(int i_max, int j_max, double a, double b, double Re, double T)
+int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* delta_t, int* N, double* delta_x, double* delta_y)
 {	
 
 	int n = 20; // Maximal number of input parameters
@@ -38,26 +38,21 @@ double* init(int i_max, int j_max, double a, double b, double Re, double T)
 
    fclose(f);
 
-   i_max = parameters[0];
-   j_max = parameters[1];
-   a = parameters[2];
-   b = parameters[3];
-   Re = parameters[4];
-   T = parameters[5];
+   *i_max = parameters[0];
+   *j_max = parameters[1];
+   *a = parameters[2];
+   *b = parameters[3];
+   *Re = parameters[4];
+   *delta_t = parameters[6];
+   *N = parameters[5];
 
-   delx = a/i_max;
-   dely = b/j_max;
-   parameters[6] = delx;
-   parameters[7] = dely;
+   *delta_x = *a / *i_max;
+   *delta_y = *b / *j_max;
 
-   cells_number = (i_max + 1) * (j_max + 1);
-   parameters[8] = cells_number;
-
-   printf("Grid initialized!");
-   return parameters;
+   return 0;
 }
 
-double output(int i_max, int j_max, double** u, double** v)
+int output(int i_max, int j_max, double** u, double** v)
 {
 	int i, j;
 
