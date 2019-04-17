@@ -73,6 +73,6 @@ int output(int i_max, int j_max, double** u, double** v)
     fclose(fp_u);
     fclose(fp_v);
 
-    printf("Output created!")	
+    printf("Output created!");	
     return 0;
 }
