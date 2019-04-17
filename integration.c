@@ -85,3 +85,17 @@ double G(double** u, double** v, int i, int j, double Re, double g_y, double del
              dv2_dy(u, v, i, j, delta_y, gamma) +
              g_y);
 }
+
+/**
+ * @brief Forward difference stencil for dp/dx.
+ */
+double dp_dx(double** p, int i, int j, double delta_x) {
+    return (p[i+1][j] + p[i][j]) / delta_x;
+}
+
+/**
+ * @brief Forward difference stencil for dp/dy.
+ */
+double dp_dy(double** p, int i, int j, double delta_y) {
+    return (p[i][j+1] - p[i][j]) / delta_y;
+}
