@@ -130,6 +130,7 @@ double L2(double** m, int i_max, int j_max) {
  */
 int SOR(double** p, int i_max, int j_max, double delta_x, double delta_y, double** res, double** RHS, double omega, double eps) {
     int i, j;
+
     double norm_p = L2(p, i_max, j_max);    // L2 norm of grid.
     while (1) {
         // Fill ghost cells with values of neighbourng cells for new iteration step.
@@ -147,14 +148,21 @@ int SOR(double** p, int i_max, int j_max, double delta_x, double delta_y, double
         // Iterate through grid a calculate new values.
         for (i = 1; i <= i_max; i++) {
             for (j = 1; j <= j_max; j++) {
-                p[i][j] = (1 - omega) * p[i][j] + omega / (2 * (1 / delta_x / delta_x + 1 / delta_y / delta_y))
-                            * ((p[i+1][j] + p[i-1][j]) / delta_x / delta_x + (p[i][j+1] + p[i-1][j]) / delta_y /delta_y - RHS[i][j]);
-                res[i][j] = (p[i+1][j] - 2*p[i][j] + p[i-1][j]) / delta_x / delta_x + (p[i][j+1] - 2*p[i][j] + p[i][j-1]) / delta_y / delta_y - RHS[i][j];
+                p[i][j] = (1 - omega) * p[i][j] + omega / (2.0 * (1.0 / delta_x / delta_x + 1.0 / delta_y / delta_y))
+                            * ((p[i+1][j] + p[i-1][j]) / delta_x / delta_x + (p[i][j+1] + p[i][j-1]) / delta_y /delta_y - RHS[i][j]);
             }
         }
 
+        for (i = 1; i <= i_max; i++) {
+            for (j = 1; j <= j_max; j++) {
+                res[i][j] = (p[i+1][j] - 2.0*p[i][j] + p[i-1][j]) / delta_x / delta_x + (p[i][j+1] - 2.0*p[i][j] + p[i][j-1]) / delta_y / delta_y - RHS[i][j];
+            }
+        }
+
+        printf("%.5f\n", L2(res, i_max, j_max));
+
         // Abortion condition.
-        if (L2(res, i_max, j_max) < eps * norm_p) {
+        if (L2(res, i_max, j_max) <= eps * norm_p + 0.00001) {
             return 0;
         }
     }
