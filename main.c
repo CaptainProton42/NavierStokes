@@ -36,6 +36,8 @@ int main()
     double** res;
     double** RHS;
 
+    double* conditions;
+
     int i_max, j_max; // Dimensions of the grid.
     double a, b; // Sizes of the grid.
     double Re; // Reynolds number;
@@ -57,7 +59,10 @@ int main()
     double gamma = 1;
     double t = 0;
     int i, j;
+
     while (t < T) {
+
+
         // Set boundary conditions.
         set_noslip(i_max, j_max, u, v, LEFT);
         set_noslip(i_max, j_max, u, v, RIGHT);
