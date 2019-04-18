@@ -68,7 +68,7 @@ int main()
     	conditions[1] = delta_x / abs(biggest_number(i_max, j_max, u));
     	conditions[2] = delta_y / abs(biggest_number(i_max, j_max, v));
 
-    	delta_t = gamma * smallest_number(3,0,conditions);
+    	delta_t = gamma * smallest_number(2,conditions);
 
         // Set boundary conditions.
         set_noslip(i_max, j_max, u, v, LEFT);
