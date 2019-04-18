@@ -8,8 +8,8 @@ double du2_dx(double** u, double** v, int i, int j, double delta_x, double gamma
     double stencil1 = 0.5 * (u[i][j] + u[i+1][j]);
     double stencil2 = 0.5 * (u[i-1][j] + u[i][j]);
 
-    double stencil3 = abs(stencil1) * 0.5 * (u[i][j] - u[i+1][j]);
-    double stencil4 = abs(stencil2) * 0.5 * (u[i-1][j] - u[i][j]);
+    double stencil3 = fabs(stencil1) * 0.5 * (u[i][j] - u[i+1][j]);
+    double stencil4 = fabs(stencil2) * 0.5 * (u[i-1][j] - u[i][j]);
 
     return 1/delta_x * (stencil1*stencil1 - stencil2*stencil2) + gamma / delta_x * (stencil3 - stencil4);
 }
@@ -21,8 +21,8 @@ double duv_dy(double** u, double** v, int i, int j, double delta_y, double gamma
     double stencil3 = stencil1 * 0.5 * (u[i][j] + u[i][j+1]);
     double stencil4 = stencil2 * 0.5 * (u[i][j-1] + u[i][j]);
 
-    double stencil5 = abs(stencil1) * 0.5 * (u[i][j] - u[i][j+1]);
-    double stencil6 = abs(stencil2) * 0.5 * (u[i][j-1] - u[i][j]);
+    double stencil5 = fabs(stencil1) * 0.5 * (u[i][j] - u[i][j+1]);
+    double stencil6 = fabs(stencil2) * 0.5 * (u[i][j-1] - u[i][j]);
 
     return 1/delta_y * (stencil3 - stencil4) + gamma / delta_y * (stencil5 - stencil6);
 }
@@ -31,8 +31,8 @@ double dv2_dy(double** u, double** v, int i, int j, double delta_y, double gamma
     double stencil1 = 0.5 * (v[i][j] + v[i][j+1]);
     double stencil2 = 0.5 * (v[i][j-1] + v[i][j]);
 
-    double stencil3 = abs(stencil1) * 0.5 * (v[i][j] - v[i][j+1]);
-    double stencil4 = abs(stencil2) * 0.5 * (v[i][j-1] - v[i][j]);
+    double stencil3 = fabs(stencil1) * 0.5 * (v[i][j] - v[i][j+1]);
+    double stencil4 = fabs(stencil2) * 0.5 * (v[i][j-1] - v[i][j]);
 
     return 1/delta_y * (stencil1*stencil1 - stencil2*stencil2) + gamma / delta_y * (stencil3 - stencil4);
 }
@@ -44,8 +44,8 @@ double duv_dx(double** u, double** v, int i, int j, double delta_x, double gamma
     double stencil3 = stencil1 * 0.5 * (v[i][j] + v[i+1][j]);
     double stencil4 = stencil2 * 0.5 * (v[i-1][j] + v[i][j]);
 
-    double stencil5 = abs(stencil1) * 0.5 * (v[i][j] - v[i+1][j]);
-    double stencil6 = abs(stencil2) * 0.5 * (v[i-1][j] - v[i][j]);
+    double stencil5 = fabs(stencil1) * 0.5 * (v[i][j] - v[i+1][j]);
+    double stencil6 = fabs(stencil2) * 0.5 * (v[i-1][j] - v[i][j]);
 
     return 1/delta_x * (stencil3 - stencil4) + gamma / delta_x * (stencil5 - stencil6);
 }
@@ -101,7 +101,7 @@ double FG(double** F, double** G, double** u, double** v, int i_max, int j_max, 
  * @brief Forward difference stencil for dp/dx.
  */
 double dp_dx(double** p, int i, int j, double delta_x) {
-    return (p[i+1][j] + p[i][j]) / delta_x;
+    return (p[i+1][j] - p[i][j]) / delta_x;
 }
 
 /**
@@ -115,14 +115,14 @@ double dp_dy(double** p, int i, int j, double delta_y) {
  * Returns the L2 norm of a grid with one ghost row/column on each side.
  */
 double L2(double** m, int i_max, int j_max) {
-    double norm = 0;
+    double norm = 0.0;
     int i, j;
     for (i = 1; i <= i_max; i++) {
         for(j = 1; j <= j_max; j++) {
             norm += m[i][j] * m[i][j];
         }
     }
-    return norm / i_max / j_max;
+    return sqrt(norm / i_max / j_max);
 }
 
 /**
@@ -130,6 +130,11 @@ double L2(double** m, int i_max, int j_max) {
  */
 int SOR(double** p, int i_max, int j_max, double delta_x, double delta_y, double** res, double** RHS, double omega, double eps) {
     int i, j;
+    double dydy = delta_y * delta_y;
+    double dxdx = delta_x * delta_x;
+
+    int it_max = 500;
+    int it = 0;
 
     double norm_p = L2(p, i_max, j_max);    // L2 norm of grid.
     while (1) {
@@ -148,23 +153,25 @@ int SOR(double** p, int i_max, int j_max, double delta_x, double delta_y, double
         // Iterate through grid a calculate new values.
         for (i = 1; i <= i_max; i++) {
             for (j = 1; j <= j_max; j++) {
-                p[i][j] = (1 - omega) * p[i][j] + omega / (2.0 * (1.0 / delta_x / delta_x + 1.0 / delta_y / delta_y))
-                            * ((p[i+1][j] + p[i-1][j]) / delta_x / delta_x + (p[i][j+1] + p[i][j-1]) / delta_y /delta_y - RHS[i][j]);
+                p[i][j] = (1.0 - omega) * p[i][j] + omega / (2.0 * (1.0 / dxdx + 1.0 / dydy))
+                            * ((p[i+1][j] + p[i-1][j]) / dxdx + (p[i][j+1] + p[i][j-1]) / dydy - RHS[i][j]);
             }
         }
 
         for (i = 1; i <= i_max; i++) {
             for (j = 1; j <= j_max; j++) {
-                res[i][j] = (p[i+1][j] - 2.0*p[i][j] + p[i-1][j]) / delta_x / delta_x + (p[i][j+1] - 2.0*p[i][j] + p[i][j-1]) / delta_y / delta_y - RHS[i][j];
+                res[i][j] = (p[i+1][j] - 2.0*p[i][j] + p[i-1][j]) / dxdx + (p[i][j+1] - 2.0*p[i][j] + p[i][j-1]) / dydy - RHS[i][j];
             }
         }
 
-        printf("%.5f\n", L2(res, i_max, j_max));
-
+        //printf("%.5f\n", L2(res, i_max, j_max));
         // Abortion condition.
         if (L2(res, i_max, j_max) <= eps * norm_p + 0.00001) {
             return 0;
         }
+
+        it++;
+        if (it > it_max) return 0;
     }
 
     // This should never be reached.

@@ -95,6 +95,7 @@ double smallest_number(int i_max, double* u)
            	}
     	 
     }
+    
 	return min;
 }
 
@@ -103,9 +104,9 @@ double biggest_number(int i_max, int j_max, double** u)
    	double max = u[0][0];
    	int i,j;
 
-   	for (i = 0; i < i_max; i++)
+   	for (i = 1; i <= i_max; i++)
    	{
-       	for (j = 0; j < j_max; j++)
+       	for (j = 1; j <= j_max; j++)
        	{
            	if (max < u[i][j])
            	{
@@ -113,6 +114,7 @@ double biggest_number(int i_max, int j_max, double** u)
            	}
     	} 
     }
+
 	return max;
 }
 

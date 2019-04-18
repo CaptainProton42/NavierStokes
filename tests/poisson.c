@@ -1,11 +1,11 @@
 #include "integration.h"
+#include "memory.h"
 #include "io.h"
 
 int main() {
     int i, j;
-    int N;
-    int dimx = 10;
-    int dimy = 10;
+    int i_max = 500;
+    int j_max = 500;
 
 	double** u;
 	double** v;
@@ -16,15 +16,27 @@ int main() {
     double** res;
     double** RHS;
 
-    int n;
-    for (n=0; n < N; n++) {
-        for (i=1; i<=dimx; i++) {
-            for (j=1; j<=dimy; j++) {
-                RHS[i][j] = - 2 * p[i][j];
-            }
-        }
-        SOR(p, dimx, dimy, 0.1, 0.1, res, RHS, 1.5, 0.1);
+    allocate_memory(&u, &v, &p, &res, &RHS, &F, &G, i_max, j_max);
+
+    // Set boundary conditions.
+    for (i = 1; i <= i_max; i++) {
+        p[i][1] = 1.0;
+        //p[i][j_max] = 1.0;
     }
 
-    output(dimx, dimy, u, v, p);
+    /*
+    for (j = 1; j <= j_max; j++) {
+        p[1][j] = 1.0;
+        p[i_max][j] = 1.0;
+    }
+    */
+
+    for (i=1; i<=i_max; i++) {
+        for (j=1; j<=j_max; j++) {
+            RHS[i][j] = -2.0 *p[i][j];
+        }
+    }
+    SOR(p, i_max, j_max, 0.01, 0.01, res, RHS, 1.7, 0.001);
+
+    output(i_max, j_max, u, v, p);
 }

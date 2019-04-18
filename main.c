@@ -57,19 +57,21 @@ int main()
     delta_t = 0.01; // initial stepsize
     double g_x = 0.0;
     double g_y = -9.81;
-    double gamma = 1;
+    double gamma = 0.1;
+    double tau = 1.0;
     double t = 0;
     int i, j;
 
     while (t < T) {
+        printf("%.5f / %.5f\n---------------------\n", t, T);
 
     	// Adaptive stepsize
     	conditions[0] = (Re/2.0)*(1.0 / ( (1.0 /(delta_x) * (1.0 /delta_x)) + (1.0 /(delta_y) * (1.0 /delta_y)) ));
-    	conditions[1] = delta_x / abs(biggest_number(i_max, j_max, u));
-    	conditions[2] = delta_y / abs(biggest_number(i_max, j_max, v));
+    	conditions[1] = delta_x / fabs(biggest_number(i_max, j_max, u));
+    	conditions[2] = delta_y / fabs(biggest_number(i_max, j_max, v));
 
-    	delta_t = gamma * smallest_number(2,conditions);
-    	printf("%f\n",delta_t);
+    	delta_t = tau * smallest_number(2,conditions);
+
         // Set boundary conditions.
         set_noslip(i_max, j_max, u, v, LEFT);
         set_noslip(i_max, j_max, u, v, RIGHT);
@@ -92,7 +94,7 @@ int main()
 
         printf("RHS calculated!\n");
 
-        SOR(p, i_max, j_max, delta_x, delta_y, res, RHS, 1.5, 0.1);
+        SOR(p, i_max, j_max, delta_x, delta_y, res, RHS, 1.7, 0.001);
 
         printf("SOR complete!\n");
 
