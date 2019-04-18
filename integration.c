@@ -45,7 +45,7 @@ double duv_dx(double** u, double** v, int i, int j, double delta_x, double gamma
     double stencil4 = stencil2 * 0.5 * (v[i-1][j] + v[i][j]);
 
     double stencil5 = abs(stencil1) * 0.5 * (v[i][j] - v[i+1][j]);
-    double stencil6 = abs(stencil2) * 0.5 * (v[-1][j] - v[i][j]);
+    double stencil6 = abs(stencil2) * 0.5 * (v[i-1][j] - v[i][j]);
 
     return 1/delta_x * (stencil3 - stencil4) + gamma / delta_x * (stencil5 - stencil6);
 }
@@ -75,19 +75,16 @@ double FG(double** F, double** G, double** u, double** v, int i_max, int j_max, 
     for (i = 1; i <= i_max; i++) {
         for(j = 1; j <= j_max; j++) {
             printf("FG: %d %d\n", i, j);
+            
             if (i <= i_max - 1) {
-                /*
                 F[i][j] = u[i][j] +
                             delta_t * (1/Re * (d2u_dx2(u, i, j, delta_x) +
                             d2u_dy2(u, i, j, delta_y)) -
                             du2_dx(u, v, i, j, delta_x, gamma) -
                             duv_dy(u, v, i, j, delta_y, gamma) +
                             g_x);
-                */
-                F[i][j] = u[i][j] +
-                            delta_t * (1/Re * (d2u_dx2(u, i, j, delta_x)));    
             }
-            /*
+
             if (j <= j_max - 1) {
                 G[i][j] = v[i][j] +
                             delta_t * (1/Re * (d2v_dx2(v, i, j, delta_x) +
@@ -96,7 +93,6 @@ double FG(double** F, double** G, double** u, double** v, int i_max, int j_max, 
                             dv2_dy(u, v, i, j, delta_y, gamma) +
                             g_y);
             }
-            */
 
             // This part quickly segfaults since there are no values for u_imax+1 and v_jmax+1.
         }
