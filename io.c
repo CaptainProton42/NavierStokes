@@ -81,7 +81,7 @@ int output(int i_max, int j_max, double** u, double** v, double** p)
     return 0;
 }
 
-/*
+
 double smallest_number(int i_max, int j_max, double** u)
 {
    	double min = u[0][0];
@@ -99,4 +99,22 @@ double smallest_number(int i_max, int j_max, double** u)
     }
 	return min;
 }
-*/
+
+double biggest_number(int i_max, int j_max, double** u)
+{
+   	double max = u[0][0];
+   	int i,j;
+
+   	for (i = 1; x < i_max; i++)
+   	{
+       	for (j = 1; y < j_max; j++)
+       	{
+           	if (max < u[i][j])
+           	{
+               	max = u[i][j];
+           	}
+    	} 
+    }
+	return max;
+}
+
