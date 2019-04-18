@@ -37,6 +37,7 @@ int main()
     double** RHS;
 
     double* conditions;
+    *conditions = (double*) calloc(3, sizeof(double*));
 
     int i_max, j_max; // Dimensions of the grid.
     double a, b; // Sizes of the grid.
@@ -62,6 +63,12 @@ int main()
 
     while (t < T) {
 
+    	// Adaptive stepsize
+    	conditions[0] = (Re/2)*(1 / ( (1/(delta_x) * (1/delta_x)) + (1/(delta_y) * (1/delta_y)) );
+    	conditions[1] = delta_x / abs(biggest_number(i_max, j_max, u));
+    	conditions[2] = delta_y / abs(biggest_number(i_max, j_max, v));
+
+    	delta_t = gamma * smallest_number(3,0,conditions);
 
         // Set boundary conditions.
         set_noslip(i_max, j_max, u, v, LEFT);
