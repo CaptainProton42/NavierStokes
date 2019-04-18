@@ -24,3 +24,13 @@
     
     return 0;
 }
+
+int free_memory(double*** u, double*** v, double*** p, double*** res, double*** RHS, double*** F, double*** G) {
+    free(*u);
+    free(*v);
+    free(*p);
+    free(*res);
+    free(*RHS);
+    free(*F);
+    free(*G);
+}
