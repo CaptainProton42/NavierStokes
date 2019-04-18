@@ -112,6 +112,7 @@ int main()
     }
 
 	output(i_max, j_max, u, v, p);
-    free_memory(&u, &v, &p, &res, &RHS, &F, &G, &conditions);
+    free_memory(&u, &v, &p, &res, &RHS, &F, &G);
+    free(conditions);
     return 0;
 }
