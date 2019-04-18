@@ -54,7 +54,7 @@ int main()
     printf("Memory allocated.\n");
 
     // Steps.
-    delta_t = 0.01; // const timestep for now
+    delta_t = 0.01; // initial stepsize
     double g_x = 0.0;
     double g_y = -9.81;
     double gamma = 1;
@@ -64,17 +64,17 @@ int main()
     while (t < T) {
 
     	// Adaptive stepsize
-    	conditions[0] = (Re/2)*(1 / ( (1/(delta_x) * (1/delta_x)) + (1/(delta_y) * (1/delta_y)) ));
+    	conditions[0] = (Re/2.0)*(1.0 / ( (1.0 /(delta_x) * (1.0 /delta_x)) + (1.0 /(delta_y) * (1.0 /delta_y)) ));
     	conditions[1] = delta_x / abs(biggest_number(i_max, j_max, u));
     	conditions[2] = delta_y / abs(biggest_number(i_max, j_max, v));
 
     	delta_t = gamma * smallest_number(2,conditions);
-
+    	printf("%f\n",delta_t);
         // Set boundary conditions.
         set_noslip(i_max, j_max, u, v, LEFT);
         set_noslip(i_max, j_max, u, v, RIGHT);
         set_noslip(i_max, j_max, u, v, BOTTOM);
-        set_inflow(i_max, j_max, u, v, TOP, 0, 1);
+        set_inflow(i_max, j_max, u, v, TOP, 0.0, 1.0);
 
         printf("Conditions set!\n");
 
@@ -83,7 +83,7 @@ int main()
 
         printf("F, G calculated!\n");
 
-        // RHS of Poission equation.
+        // RHS of Poisson equation.
         for (i = 1; i <= i_max; i++ ) {
             for (j = 1; j <= j_max; j++) {
                 RHS[i][j] = 1.0 / delta_t * ((F[i][j] - F[i-1][j])/delta_x + (G[i][j] - G[i][j-1])/delta_y);
