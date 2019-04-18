@@ -74,8 +74,6 @@ double FG(double** F, double** G, double** u, double** v, int i_max, int j_max, 
     int i, j;
     for (i = 1; i <= i_max; i++) {
         for(j = 1; j <= j_max; j++) {
-            printf("FG: %d %d\n", i, j);
-            
             if (i <= i_max - 1) {
                 F[i][j] = u[i][j] +
                             delta_t * (1/Re * (d2u_dx2(u, i, j, delta_x) +
