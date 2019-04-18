@@ -87,8 +87,8 @@ int main()
         // Update velocities.
         for (i = 1; i <= i_max; i++ ) {
             for (j = 1; j <= j_max; j++) {
-                u[i][j] = F[i][j] - delta_t * dp_dx(p, i, j, delta_x);
-                v[i][j] = G[i][j] - delta_t * dp_dy(p, i, j, delta_y);
+                if (i <= i_max - 1) u[i][j] = F[i][j] - delta_t * dp_dx(p, i, j, delta_x);
+                if (j <= j_max - 1) v[i][j] = G[i][j] - delta_t * dp_dy(p, i, j, delta_y);
             }
         }
 
