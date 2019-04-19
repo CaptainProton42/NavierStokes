@@ -1,5 +1,4 @@
 #include "io.h"
-/*#include "globals.h"*/
 #include "memory.h"
 #include "integration.h"
 
@@ -17,13 +16,6 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
 
 	double* parameters = (double*) calloc(n, sizeof(double));
 
-	int i;
-	double deltax;
-	double deltay;
-	double deltat;
-	double cells_number;
-
-
 
    if (f == NULL)
    {
@@ -31,6 +23,7 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
       exit(EXIT_FAILURE);
    }
 
+   int i;
    for (i = 0; i < n; i++)
    {
    	fscanf(f, "%lf,",&parameters[i]);
