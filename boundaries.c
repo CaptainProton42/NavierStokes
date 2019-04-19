@@ -8,27 +8,27 @@ int set_inflow(int i_max, int j_max, double** u, double** v, int side, double u_
     int i,j;
     switch(side) {
         case TOP:            
-            for (i = 0; i < i_max+2; i++) {
+            for (i = 1; i <= i_max; i++) {
                 v[i][j_max] = v_fix; /* Set fixed values on border. */
-                if (i < i_max + 1) u[i][j_max + 1] = 2 * u_fix - u[i][j_max]; /* Set values with no exact border value by averaging. */
+                u[i][j_max + 1] = 2 * u_fix - u[i][j_max]; /* Set values with no exact border value by averaging. */
             }
             break;
         case BOTTOM:           
-            for (i = 0; i < i_max+2; i++) {
+            for (i = 1; i <= i_max; i++) {
                 v[i][0] = v_fix;
-                if (i < i_max + 1) u[i][0] = 2 * u_fix - u[i][1];
+                u[i][0] = 2 * u_fix - u[i][1];
             }
             break;
         case LEFT:        
-            for (j = 0; j < j_max+2; j++) {
+            for (j = 1; j <= j_max; j++) {
                 u[0][j] = u_fix;
-                if (j < j_max + 1) v[0][j] = 2 * v_fix  - v[1][j];
+                v[0][j] = 2 * v_fix  - v[1][j];
             }
             break;
         case RIGHT:            
-            for (j = 0; j < j_max+2; j++) {
+            for (j = 1; j <= j_max; j++) {
                 u[i_max][j] = u_fix;
-                if (j < j_max + 1) v[i_max+1][j] = 2 * v_fix - v[i_max][j];
+                v[i_max+1][j] = 2 * v_fix - v[i_max][j];
             }
             break;
         default: 
