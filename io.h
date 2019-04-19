@@ -19,10 +19,8 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
 int output(int i_max, int j_max, double** u, double** v, double** p, const char* prefix);
 
 /**
-* @brief Gives smallest entry of a vector.
-*/
-double smallest_number(int i_max, double* u);
-/**
 * @brief Gives greatest entry of an array.
 */
-double biggest_number(int i_max, int j_max, double** u);
+double max_mat(int i_max, int j_max, double** u);
+
+double n_min(int num, ...);

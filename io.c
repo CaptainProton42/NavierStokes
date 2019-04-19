@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
+#include <stdarg.h>
 
 int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* g_x, double* g_y, double* tau)
 {	
@@ -23,9 +24,9 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
    }
 
     fgets(buffer, 256, f);
-    sscanf(buffer, "%lf", i_max);
+    sscanf(buffer, "%d", i_max);
     fgets(buffer, 256, f);
-    sscanf(buffer, "%lf", j_max);
+    sscanf(buffer, "%d", j_max);
     fgets(buffer, 256, f);
     sscanf(buffer, "%lf", a);
     fgets(buffer, 256, f);
@@ -88,25 +89,7 @@ int output(int i_max, int j_max, double** u, double** v, double** p, const char*
     return 0;
 }
 
-
-double smallest_number(int i_max, double* u)
-{
-   	double min = u[0];
-   	int i;
-
-   	for (i = 0; i <= i_max; i++)
-   	{
-           	if (min > u[i])
-           	{
-               	min = u[i];
-           	}
-    	 
-    }
-    
-	return min;
-}
-
-double biggest_number(int i_max, int j_max, double** u)
+double max_mat(int i_max, int j_max, double** u)
 {
    	double max = u[0][0];
    	int i,j;
@@ -125,3 +108,24 @@ double biggest_number(int i_max, int j_max, double** u)
 	return max;
 }
 
+double n_min(int num, ...)
+{
+    va_list valist;
+    va_start(valist, num);
+
+   	double min = va_arg(valist, double);
+   	int i;
+
+   	for (i = 0; i < num-1; i++)
+   	{
+        double val = va_arg(valist, double);
+
+        if (min > val)
+        {
+            min = val;
+        }
+    	 
+    }
+    
+	return min;
+}

@@ -15,8 +15,8 @@
 #include "io.h"
 #include "integration.h"
 #include "boundaries.h"
-#include "math.h"
 
+#include <math.h>
 #include <stdio.h>
 
 
@@ -51,11 +51,11 @@ int main()
     double tau;
 
 	init(&i_max, &j_max, &a, &b, &Re, &T, &g_x, &g_y, &tau);
+    printf("Initialized!\n");
 
     delta_x = a / i_max;
     delta_y = b / j_max;
 
-    printf("Initialized!\n");
 
     allocate_memory(&u, &v, &p, &res, &RHS, &F, &G, i_max, j_max);
 
@@ -71,11 +71,13 @@ int main()
         printf("%.5f / %.5f\n---------------------\n", t, T);
 
     	// Adaptive stepsize
-    	conditions[0] = (Re/2.0)*(1.0 / ( (1.0 /(delta_x) * (1.0 /delta_x)) + (1.0 /(delta_y) * (1.0 /delta_y)) ));
-    	conditions[1] = delta_x / fabs(biggest_number(i_max, j_max, u));
-    	conditions[2] = delta_y / fabs(biggest_number(i_max, j_max, v));
+        double u_max = max_mat(i_max, j_max, u);
+        double v_max = max_mat(i_max, j_max, v);
 
-    	delta_t = tau * smallest_number(2,conditions);
+    	delta_t = tau * n_min(3, (Re/2.0)*(1.0 / ( (1.0 /(delta_x) * (1.0 /delta_x)) + (1.0 /(delta_y) * (1.0 /delta_y)) )), delta_x / fabs(u_max), delta_y / fabs(v_max));
+
+        gamma = fmax(u_max * delta_t / delta_x, v_max * delta_t / delta_y);
+
 
         // Set boundary conditions.
         set_noslip(i_max, j_max, u, v, LEFT);
