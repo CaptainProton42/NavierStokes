@@ -1,1 +1,9 @@
-500 500 8 8 100 1
+500 	# i_max
+500 	# j_max
+1 		# Side a length
+1 		# Side b length
+1 		# Time to integrate
+100 	# Reynolds number
+0 		# x-component of g
+9.81 	# y-component of g
+1.0		# Security factor tau.

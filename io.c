@@ -9,22 +9,13 @@
 #include <math.h>
 #include <string.h>
 
-int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* delta_x, double* delta_y)
+int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* g_x, double* g_y, double* tau)
 {	
 
 	int n = 20; // Maximal number of input parameters
+    char buffer[256];
 	FILE *f;
 	f = fopen("parameters.txt", "r");
-
-	double* parameters = (double*) calloc(n, sizeof(double));
-
-	int i;
-	double deltax;
-	double deltay;
-	double deltat;
-	double cells_number;
-
-
 
    if (f == NULL)
    {
@@ -32,24 +23,28 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
       exit(EXIT_FAILURE);
    }
 
-   for (i = 0; i < n; i++)
-   {
-   	fscanf(f, "%lf,",&parameters[i]);
-   }
+    fgets(buffer, 256, f);
+    sscanf(buffer, "%lf", i_max);
+    fgets(buffer, 256, f);
+    sscanf(buffer, "%lf", j_max);
+    fgets(buffer, 256, f);
+    sscanf(buffer, "%lf", a);
+    fgets(buffer, 256, f);
+    sscanf(buffer, "%lf", b);
+    fgets(buffer, 256, f);
+    sscanf(buffer, "%lf", T);
+    fgets(buffer, 256, f);
+    sscanf(buffer, "%lf", Re);
+    fgets(buffer, 256, f);
+    sscanf(buffer, "%lf", g_x);
+    fgets(buffer, 256, f);
+    sscanf(buffer, "%lf", g_y);
+    fgets(buffer, 256, f);
+    sscanf(buffer, "%lf", tau);
 
-   fclose(f);
+    fclose(f);
 
-   *i_max = parameters[0];
-   *j_max = parameters[1];
-   *a = parameters[2];
-   *b = parameters[3];
-   *Re = parameters[4];
-   *T = parameters[5];
-
-   *delta_x = *a / *i_max;
-   *delta_y = *b / *j_max;
-
-   return 0;
+    return 0;
 }
 
 int output(int i_max, int j_max, double** u, double** v, double** p, const char* prefix)

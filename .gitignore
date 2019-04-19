@@ -1,3 +1,5 @@
 .vscode/
 obj/
+out/
 main
+*.mp4

@@ -59,8 +59,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">memory.h File Reference</div>  </div>
 </div><!--header-->
@@ -87,35 +86,20 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7e7a18ec09bede9d8b83d26737bb75da"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8h.html#a7e7a18ec09bede9d8b83d26737bb75da">allocate_memory</a> (int i_max, int j_max)</td></tr>
-<tr class="memdesc:a7e7a18ec09bede9d8b83d26737bb75da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate memory for the three displaced lattices.  <a href="#a7e7a18ec09bede9d8b83d26737bb75da">More...</a><br /></td></tr>
-<tr class="separator:a7e7a18ec09bede9d8b83d26737bb75da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a0f2aeac6016e514b2d5f807403e021a4"><td class="memItemLeft" align="right" valign="top"><a id="a0f2aeac6016e514b2d5f807403e021a4"></a>
-double **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8h.html#a0f2aeac6016e514b2d5f807403e021a4">u</a></td></tr>
-<tr class="memdesc:a0f2aeac6016e514b2d5f807403e021a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity lattice in x direction. <br /></td></tr>
-<tr class="separator:a0f2aeac6016e514b2d5f807403e021a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4d037a1a2ce458635b6711394f91390"><td class="memItemLeft" align="right" valign="top"><a id="af4d037a1a2ce458635b6711394f91390"></a>
-double **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8h.html#af4d037a1a2ce458635b6711394f91390">v</a></td></tr>
-<tr class="memdesc:af4d037a1a2ce458635b6711394f91390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity lattice in y direction. <br /></td></tr>
-<tr class="separator:af4d037a1a2ce458635b6711394f91390"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a634067c16f9b705012fdc68c20935f52"><td class="memItemLeft" align="right" valign="top"><a id="a634067c16f9b705012fdc68c20935f52"></a>
-double **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8h.html#a634067c16f9b705012fdc68c20935f52">p</a></td></tr>
-<tr class="memdesc:a634067c16f9b705012fdc68c20935f52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pressure lattice. <br /></td></tr>
-<tr class="separator:a634067c16f9b705012fdc68c20935f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9102262453a557ec3a67c5c2faf4711c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8h.html#a9102262453a557ec3a67c5c2faf4711c">allocate_memory</a> (double ***u, double ***v, double ***p, double ***res, double ***RHS, double ***F, double ***G, int i_max, int j_max)</td></tr>
+<tr class="memdesc:a9102262453a557ec3a67c5c2faf4711c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate memory for all grids used during integration.  <a href="#a9102262453a557ec3a67c5c2faf4711c">More...</a><br /></td></tr>
+<tr class="separator:a9102262453a557ec3a67c5c2faf4711c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a819720edc7656215b89e49614a535766"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8h.html#a819720edc7656215b89e49614a535766">free_memory</a> (double ***u, double ***v, double ***p, double ***res, double ***RHS, double ***F, double ***G)</td></tr>
+<tr class="memdesc:a819720edc7656215b89e49614a535766"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free memory of all grids used during integration.  <a href="#a819720edc7656215b89e49614a535766">More...</a><br /></td></tr>
+<tr class="separator:a819720edc7656215b89e49614a535766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Memory management. </p>
 <dl class="section author"><dt>Author</dt><dd>Hollweck, Wigg </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>10 April 2019 Here typically goes a more extensive explanation of what the header defines. Doxygens tags are words preceeded by either a backslash \ or by an at symbol @. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.stack.nl/~dimitri/doxygen/docblocks.html">http://www.stack.nl/~dimitri/doxygen/docblocks.html</a> </dd>
-<dd>
-<a href="http://www.stack.nl/~dimitri/doxygen/commands.html">http://www.stack.nl/~dimitri/doxygen/commands.html</a> </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>10 April 2019 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a7e7a18ec09bede9d8b83d26737bb75da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e7a18ec09bede9d8b83d26737bb75da">&#9670;&nbsp;</a></span>allocate_memory()</h2>
+<a id="a9102262453a557ec3a67c5c2faf4711c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9102262453a557ec3a67c5c2faf4711c">&#9670;&nbsp;</a></span>allocate_memory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -123,6 +107,48 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
         <tr>
           <td class="memname">int allocate_memory </td>
           <td>(</td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>RHS</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>F</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>G</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>i_max</em>, </td>
         </tr>
@@ -140,9 +166,88 @@ double **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
       </table>
 </div><div class="memdoc">
 
-<p>Allocate memory for the three displaced lattices. </p>
+<p>Allocate memory for all grids used during integration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">u</td><td>Velocity lattice x-component. </td></tr>
+    <tr><td class="paramname">v</td><td>Velociry lattice y-component. </td></tr>
+    <tr><td class="paramname">p</td><td>pressure lattice. </td></tr>
+    <tr><td class="paramname">residuum</td><td>grid. </td></tr>
+    <tr><td class="paramname">grid</td><td>storing RHS of poission equation. </td></tr>
+    <tr><td class="paramname">i_max</td><td>Lattice dimension in x-direction. </td></tr>
+    <tr><td class="paramname">j_max</td><td>Lattice dimension in y-direction. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on finish. </dd></dl>
+
+</div>
+</div>
+<a id="a819720edc7656215b89e49614a535766"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a819720edc7656215b89e49614a535766">&#9670;&nbsp;</a></span>free_memory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int free_memory </td>
+          <td>(</td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>RHS</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>F</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double ***&#160;</td>
+          <td class="paramname"><em>G</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Free memory of all grids used during integration. </p>
+<p>Allocate memory for all grids used during integration.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u</td><td>Velocity lattice x-component. </td></tr>
+    <tr><td class="paramname">v</td><td>Velociry lattice y-component. </td></tr>
+    <tr><td class="paramname">p</td><td>pressure lattice. </td></tr>
+    <tr><td class="paramname">residuum</td><td>grid. </td></tr>
+    <tr><td class="paramname">grid</td><td>storing RHS of poission equation. </td></tr>
     <tr><td class="paramname">i_max</td><td>Lattice dimension in x-direction. </td></tr>
     <tr><td class="paramname">j_max</td><td>Lattice dimension in y-direction. </td></tr>
   </table>

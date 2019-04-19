@@ -1,0 +1,339 @@
+\hypertarget{integration_8h}{}\section{integration.\+h File Reference}
+\label{integration_8h}\index{integration.\+h@{integration.\+h}}
+
+
+Stencils.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{integration_8h_a8b847eb312989f63cb297d850cd9606d}{du2\+\_\+dx} (double $\ast$$\ast$u, double $\ast$$\ast$v, int i, int j, double delta\+\_\+x, double gamma)
+\begin{DoxyCompactList}\small\item\em Stencil for $\frac{du^2}{dx}$. \end{DoxyCompactList}\item 
+double \hyperlink{integration_8h_a0dba51f6aea693222ff405300c8f281b}{duv\+\_\+dy} (double $\ast$$\ast$u, double $\ast$$\ast$v, int i, int j, double delta\+\_\+y, double gamma)
+\begin{DoxyCompactList}\small\item\em Stencil for $\frac{duv}{dy}$. \end{DoxyCompactList}\item 
+double \hyperlink{integration_8h_ab17d3a36e54bbd3101d7bbbcd503c365}{dv2\+\_\+dy} (double $\ast$$\ast$u, double $\ast$$\ast$v, int i, int j, double delta\+\_\+y, double gamma)
+\begin{DoxyCompactList}\small\item\em Stencil for $\frac{dv^2}{dy}$. \end{DoxyCompactList}\item 
+double \hyperlink{integration_8h_ae8adebdf8930590cbfa2b98aa836f401}{duv\+\_\+dx} (double $\ast$$\ast$u, double $\ast$$\ast$v, int i, int j, double delta\+\_\+x, double gamma)
+\begin{DoxyCompactList}\small\item\em Stencil for $\frac{duv}{dx}$. \end{DoxyCompactList}\item 
+double \hyperlink{integration_8h_a569d88a6263dff750f91fedda4869062}{d2u\+\_\+dx2} (double $\ast$$\ast$u, int i, int j, double delta\+\_\+x)
+\begin{DoxyCompactList}\small\item\em Stencil for $\frac{d^2u}{dx^2}$. \end{DoxyCompactList}\item 
+double \hyperlink{integration_8h_ad6a4126691376e570a3e8eab15d592a0}{d2u\+\_\+dy2} (double $\ast$$\ast$u, int i, int j, double delta\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Stencil for $\frac{d^2u}{dy^2}$. \end{DoxyCompactList}\item 
+double \hyperlink{integration_8h_ac32bbece7bb7d3bbac93c8fd30cf8f83}{d2v\+\_\+dx2} (double $\ast$$\ast$v, int i, int j, double delta\+\_\+x)
+\begin{DoxyCompactList}\small\item\em Stencil for $\frac{d^2u}{dx^2}$. \end{DoxyCompactList}\item 
+double \hyperlink{integration_8h_ab9737f32dec96766eba8302f92c3cc9b}{d2v\+\_\+dy2} (double $\ast$$\ast$v, int i, int j, double delta\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Stencil for $\frac{d^2v}{dy^2}$. \end{DoxyCompactList}\item 
+int \hyperlink{integration_8h_a0f07cee9a85e2c7f71fcea8792cf6228}{FG} (double $\ast$$\ast$F, double $\ast$$\ast$G, double $\ast$$\ast$u, double $\ast$$\ast$v, int i\+\_\+max, int j\+\_\+max, double Re, double g\+\_\+x, double g\+\_\+y, double delta\+\_\+t, double delta\+\_\+x, double delta\+\_\+y, double gamma)
+\item 
+double \hyperlink{integration_8h_aedfca9d12ef552aa756d4438cb0863d6}{dp\+\_\+dx} (double $\ast$$\ast$p, int i, int j, double delta\+\_\+x)
+\begin{DoxyCompactList}\small\item\em Stencil for $\frac{dp}{dx}$. \end{DoxyCompactList}\item 
+double \hyperlink{integration_8h_ad097bee45ad4ab4ec81b5ca94cb231d1}{dp\+\_\+dy} (double $\ast$$\ast$p, int i, int j, double delta\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Stencil for $\frac{dp}{d<}$. \end{DoxyCompactList}\item 
+int \hyperlink{integration_8h_acadb87ee19440f424e8b0df19ddbe314}{S\+OR} (double $\ast$$\ast$p, int i\+\_\+max, int j\+\_\+max, double delta\+\_\+x, double delta\+\_\+y, double $\ast$$\ast$res, double $\ast$$\ast$R\+HS, double omega, double eps)
+\begin{DoxyCompactList}\small\item\em Implements the successive overrelaxation algorithm for calculating new pressure grid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stencils. 
+
+\begin{DoxyAuthor}{Author}
+Hollweck, Wigg 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+10 April 2019 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{integration_8h_a569d88a6263dff750f91fedda4869062}\label{integration_8h_a569d88a6263dff750f91fedda4869062}} 
+\index{integration.\+h@{integration.\+h}!d2u\+\_\+dx2@{d2u\+\_\+dx2}}
+\index{d2u\+\_\+dx2@{d2u\+\_\+dx2}!integration.\+h@{integration.\+h}}
+\subsubsection{\texorpdfstring{d2u\+\_\+dx2()}{d2u\_dx2()}}
+{\footnotesize\ttfamily double d2u\+\_\+dx2 (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{u,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{double}]{delta\+\_\+x }\end{DoxyParamCaption})}
+
+
+
+Stencil for $\frac{d^2u}{dx^2}$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Velocity grid (x components). \\
+\hline
+{\em i} & Index in x direction. \\
+\hline
+{\em j} & Index in y direction. \\
+\hline
+{\em delta\+\_\+x} & Stepsize $dx$in x direction.\\
+\hline
+\end{DoxyParams}
+$\frac{d^2u}{dx^2}$ at $u_{i,j}$.
+
+Stencil for $\frac{d^2u}{dx^2}$. \mbox{\Hypertarget{integration_8h_ad6a4126691376e570a3e8eab15d592a0}\label{integration_8h_ad6a4126691376e570a3e8eab15d592a0}} 
+\index{integration.\+h@{integration.\+h}!d2u\+\_\+dy2@{d2u\+\_\+dy2}}
+\index{d2u\+\_\+dy2@{d2u\+\_\+dy2}!integration.\+h@{integration.\+h}}
+\subsubsection{\texorpdfstring{d2u\+\_\+dy2()}{d2u\_dy2()}}
+{\footnotesize\ttfamily double d2u\+\_\+dy2 (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{u,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{double}]{delta\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Stencil for $\frac{d^2u}{dy^2}$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Velocity grid (x components). \\
+\hline
+{\em i} & Index in x direction. \\
+\hline
+{\em j} & Index in y direction. \\
+\hline
+{\em delta\+\_\+y} & Stepsize $dx$in y direction. \\
+\hline
+{\em gamma} & Weight factor for Donor-\/\+Cell stencil.\\
+\hline
+\end{DoxyParams}
+$\frac{du^2u}{dy^2}$ at $u_{i,j}$. \mbox{\Hypertarget{integration_8h_ac32bbece7bb7d3bbac93c8fd30cf8f83}\label{integration_8h_ac32bbece7bb7d3bbac93c8fd30cf8f83}} 
+\index{integration.\+h@{integration.\+h}!d2v\+\_\+dx2@{d2v\+\_\+dx2}}
+\index{d2v\+\_\+dx2@{d2v\+\_\+dx2}!integration.\+h@{integration.\+h}}
+\subsubsection{\texorpdfstring{d2v\+\_\+dx2()}{d2v\_dx2()}}
+{\footnotesize\ttfamily double d2v\+\_\+dx2 (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{v,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{double}]{delta\+\_\+x }\end{DoxyParamCaption})}
+
+
+
+Stencil for $\frac{d^2u}{dx^2}$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Velocity grid (y components). \\
+\hline
+{\em i} & Index in x direction. \\
+\hline
+{\em j} & Index in y direction. \\
+\hline
+{\em delta\+\_\+x} & Stepsize $dx$in x direction. \\
+\hline
+{\em gamma} & Weight factor for Donor-\/\+Cell stencil.\\
+\hline
+\end{DoxyParams}
+$\frac{d^2u}{dx^2}$ at $v_{i,j}$. \mbox{\Hypertarget{integration_8h_ab9737f32dec96766eba8302f92c3cc9b}\label{integration_8h_ab9737f32dec96766eba8302f92c3cc9b}} 
+\index{integration.\+h@{integration.\+h}!d2v\+\_\+dy2@{d2v\+\_\+dy2}}
+\index{d2v\+\_\+dy2@{d2v\+\_\+dy2}!integration.\+h@{integration.\+h}}
+\subsubsection{\texorpdfstring{d2v\+\_\+dy2()}{d2v\_dy2()}}
+{\footnotesize\ttfamily double d2v\+\_\+dy2 (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{v,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{double}]{delta\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Stencil for $\frac{d^2v}{dy^2}$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Velocity grid (y components). \\
+\hline
+{\em i} & Index in x direction. \\
+\hline
+{\em j} & Index in y direction. \\
+\hline
+{\em delta\+\_\+y} & Stepsize $dy$in y direction. \\
+\hline
+{\em gamma} & Weight factor for Donor-\/\+Cell stencil.\\
+\hline
+\end{DoxyParams}
+$\frac{d^2v}{dx^2}$ at $v_{i,j}$ \mbox{\Hypertarget{integration_8h_aedfca9d12ef552aa756d4438cb0863d6}\label{integration_8h_aedfca9d12ef552aa756d4438cb0863d6}} 
+\index{integration.\+h@{integration.\+h}!dp\+\_\+dx@{dp\+\_\+dx}}
+\index{dp\+\_\+dx@{dp\+\_\+dx}!integration.\+h@{integration.\+h}}
+\subsubsection{\texorpdfstring{dp\+\_\+dx()}{dp\_dx()}}
+{\footnotesize\ttfamily double dp\+\_\+dx (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{p,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{double}]{delta\+\_\+x }\end{DoxyParamCaption})}
+
+
+
+Stencil for $\frac{dp}{dx}$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pressure grid. \\
+\hline
+{\em i} & Index in x direction. \\
+\hline
+{\em j} & Index in y direction. \\
+\hline
+{\em delta\+\_\+x} & Stepsize $\delta x$in x direction.\\
+\hline
+\end{DoxyParams}
+$\frac{dp}{dx}$ at $p_{i,j}$
+
+Stencil for $\frac{dp}{dx}$. \mbox{\Hypertarget{integration_8h_ad097bee45ad4ab4ec81b5ca94cb231d1}\label{integration_8h_ad097bee45ad4ab4ec81b5ca94cb231d1}} 
+\index{integration.\+h@{integration.\+h}!dp\+\_\+dy@{dp\+\_\+dy}}
+\index{dp\+\_\+dy@{dp\+\_\+dy}!integration.\+h@{integration.\+h}}
+\subsubsection{\texorpdfstring{dp\+\_\+dy()}{dp\_dy()}}
+{\footnotesize\ttfamily double dp\+\_\+dy (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{p,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{double}]{delta\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Stencil for $\frac{dp}{d<}$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pressure grid. \\
+\hline
+{\em i} & Index in x direction. \\
+\hline
+{\em j} & Index in y direction. \\
+\hline
+{\em delta\+\_\+$<$} & Stepsize $\delta y$in y direction.\\
+\hline
+\end{DoxyParams}
+$\frac{dp}{dy}$ at $p_{i,j}$
+
+Stencil for $\frac{dp}{d<}$. \mbox{\Hypertarget{integration_8h_a8b847eb312989f63cb297d850cd9606d}\label{integration_8h_a8b847eb312989f63cb297d850cd9606d}} 
+\index{integration.\+h@{integration.\+h}!du2\+\_\+dx@{du2\+\_\+dx}}
+\index{du2\+\_\+dx@{du2\+\_\+dx}!integration.\+h@{integration.\+h}}
+\subsubsection{\texorpdfstring{du2\+\_\+dx()}{du2\_dx()}}
+{\footnotesize\ttfamily double du2\+\_\+dx (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{u,  }\item[{double $\ast$$\ast$}]{v,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{double}]{delta\+\_\+x,  }\item[{double}]{gamma }\end{DoxyParamCaption})}
+
+
+
+Stencil for $\frac{du^2}{dx}$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Velocity grid (x components). \\
+\hline
+{\em v} & Velocity grid (y components). \\
+\hline
+{\em i} & Index in x direction. \\
+\hline
+{\em j} & Index in y direction. \\
+\hline
+{\em delta\+\_\+x} & Stepsize $dx$in x direction. \\
+\hline
+{\em gamma} & Weight factor for Donor-\/\+Cell stencil.\\
+\hline
+\end{DoxyParams}
+$\frac{du^2}{dx}$ at $u_{i,j}$ \mbox{\Hypertarget{integration_8h_ae8adebdf8930590cbfa2b98aa836f401}\label{integration_8h_ae8adebdf8930590cbfa2b98aa836f401}} 
+\index{integration.\+h@{integration.\+h}!duv\+\_\+dx@{duv\+\_\+dx}}
+\index{duv\+\_\+dx@{duv\+\_\+dx}!integration.\+h@{integration.\+h}}
+\subsubsection{\texorpdfstring{duv\+\_\+dx()}{duv\_dx()}}
+{\footnotesize\ttfamily double duv\+\_\+dx (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{u,  }\item[{double $\ast$$\ast$}]{v,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{double}]{delta\+\_\+x,  }\item[{double}]{gamma }\end{DoxyParamCaption})}
+
+
+
+Stencil for $\frac{duv}{dx}$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Velocity grid (x components). \\
+\hline
+{\em v} & Velocity grid (y components). \\
+\hline
+{\em i} & Index in x direction. \\
+\hline
+{\em j} & Index in y direction. \\
+\hline
+{\em delta\+\_\+x} & Stepsize $dx$in x direction. \\
+\hline
+{\em gamma} & Weight factor for Donor-\/\+Cell stencil.\\
+\hline
+\end{DoxyParams}
+$\frac{duv}{dx}$ at $u_{i,j}$, $v_{i,j}$. \mbox{\Hypertarget{integration_8h_a0dba51f6aea693222ff405300c8f281b}\label{integration_8h_a0dba51f6aea693222ff405300c8f281b}} 
+\index{integration.\+h@{integration.\+h}!duv\+\_\+dy@{duv\+\_\+dy}}
+\index{duv\+\_\+dy@{duv\+\_\+dy}!integration.\+h@{integration.\+h}}
+\subsubsection{\texorpdfstring{duv\+\_\+dy()}{duv\_dy()}}
+{\footnotesize\ttfamily double duv\+\_\+dy (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{u,  }\item[{double $\ast$$\ast$}]{v,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{double}]{delta\+\_\+y,  }\item[{double}]{gamma }\end{DoxyParamCaption})}
+
+
+
+Stencil for $\frac{duv}{dy}$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Velocity grid (x components). \\
+\hline
+{\em v} & Velocity grid (y components). \\
+\hline
+{\em i} & Index in x direction. \\
+\hline
+{\em j} & Index in y direction. \\
+\hline
+{\em delta\+\_\+y} & Stepsize $dy$in y direction. \\
+\hline
+{\em gamma} & Weight factor for Donor-\/\+Cell stencil.\\
+\hline
+\end{DoxyParams}
+$\frac{duv}{dy}$ at $u_{i,j}$, $v_{i,j}$. \mbox{\Hypertarget{integration_8h_ab17d3a36e54bbd3101d7bbbcd503c365}\label{integration_8h_ab17d3a36e54bbd3101d7bbbcd503c365}} 
+\index{integration.\+h@{integration.\+h}!dv2\+\_\+dy@{dv2\+\_\+dy}}
+\index{dv2\+\_\+dy@{dv2\+\_\+dy}!integration.\+h@{integration.\+h}}
+\subsubsection{\texorpdfstring{dv2\+\_\+dy()}{dv2\_dy()}}
+{\footnotesize\ttfamily double dv2\+\_\+dy (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{u,  }\item[{double $\ast$$\ast$}]{v,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{double}]{delta\+\_\+y,  }\item[{double}]{gamma }\end{DoxyParamCaption})}
+
+
+
+Stencil for $\frac{dv^2}{dy}$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Velocity grid (x components). \\
+\hline
+{\em v} & Velocity grid (y components). \\
+\hline
+{\em i} & Index in x direction. \\
+\hline
+{\em j} & Index in y direction. \\
+\hline
+{\em delta\+\_\+x} & Stepsize $dy$in y direction. \\
+\hline
+{\em gamma} & Weight factor for Donor-\/\+Cell stencil.\\
+\hline
+\end{DoxyParams}
+$\frac{dv^2}{dy}$ at $v_{i,j}$. \mbox{\Hypertarget{integration_8h_a0f07cee9a85e2c7f71fcea8792cf6228}\label{integration_8h_a0f07cee9a85e2c7f71fcea8792cf6228}} 
+\index{integration.\+h@{integration.\+h}!FG@{FG}}
+\index{FG@{FG}!integration.\+h@{integration.\+h}}
+\subsubsection{\texorpdfstring{F\+G()}{FG()}}
+{\footnotesize\ttfamily int FG (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{F,  }\item[{double $\ast$$\ast$}]{G,  }\item[{double $\ast$$\ast$}]{u,  }\item[{double $\ast$$\ast$}]{v,  }\item[{int}]{i\+\_\+max,  }\item[{int}]{j\+\_\+max,  }\item[{double}]{Re,  }\item[{double}]{g\+\_\+x,  }\item[{double}]{g\+\_\+y,  }\item[{double}]{delta\+\_\+t,  }\item[{double}]{delta\+\_\+x,  }\item[{double}]{delta\+\_\+y,  }\item[{double}]{gamma }\end{DoxyParamCaption})}
+
+Calculate F and G terms.
+
+
+\begin{DoxyParams}{Parameters}
+{\em F} & Target array for F. \\
+\hline
+{\em G} & target array for G. \\
+\hline
+{\em u} & Velocity grid (x components). \\
+\hline
+{\em v} & Velocity grid (y components). \\
+\hline
+{\em i\+\_\+max} & Grid size $i_{max}$ in i direction. \\
+\hline
+{\em i\+\_\+max} & Grod size $j_{max}$ in j direction. \\
+\hline
+{\em Re} & Reynolds number. \\
+\hline
+{\em g\+\_\+x} & x-\/component $g_x$ of gravitational acceleration. \\
+\hline
+{\em g\+\_\+y} & y-\/component $g_y$ of gravitational acceleration. \\
+\hline
+{\em delta\+\_\+t} & Timestep $\delta t$. \\
+\hline
+{\em delta\+\_\+x} & Stepsize $\delta x$in x direction. \\
+\hline
+{\em delta\+\_\+y} & Stepsize $\delta y$in y direction. \\
+\hline
+{\em gamma} & Weight factor $\gamma$ for Donor-\/\+Cell stencil.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{integration_8h_acadb87ee19440f424e8b0df19ddbe314}\label{integration_8h_acadb87ee19440f424e8b0df19ddbe314}} 
+\index{integration.\+h@{integration.\+h}!S\+OR@{S\+OR}}
+\index{S\+OR@{S\+OR}!integration.\+h@{integration.\+h}}
+\subsubsection{\texorpdfstring{S\+O\+R()}{SOR()}}
+{\footnotesize\ttfamily int S\+OR (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{p,  }\item[{int}]{i\+\_\+max,  }\item[{int}]{j\+\_\+max,  }\item[{double}]{delta\+\_\+x,  }\item[{double}]{delta\+\_\+y,  }\item[{double $\ast$$\ast$}]{res,  }\item[{double $\ast$$\ast$}]{R\+HS,  }\item[{double}]{omega,  }\item[{double}]{eps }\end{DoxyParamCaption})}
+
+
+
+Implements the successive overrelaxation algorithm for calculating new pressure grid. 
+
+Implements the successive overrelaxation algorithm for calculating new pressure grid. 

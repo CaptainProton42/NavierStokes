@@ -68,7 +68,14 @@ $(function() {
 
 <p>Implements boundary conditions.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="boundaries_8h__dep__incl.png" border="0" usemap="#boundaries_8hdep" alt=""/></div>
+<map name="boundaries_8hdep" id="boundaries_8hdep">
+</map>
+</div>
+</div>
 <p><a href="boundaries_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -83,20 +90,91 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0f368db36b7bb7a34dd3035224aee7ad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="boundaries_8h.html#a0f368db36b7bb7a34dd3035224aee7ad">set_noslip</a> (double **<a class="el" href="memory_8h.html#a0f2aeac6016e514b2d5f807403e021a4">u</a>, double **<a class="el" href="memory_8h.html#af4d037a1a2ce458635b6711394f91390">v</a>, int side)</td></tr>
-<tr class="memdesc:a0f368db36b7bb7a34dd3035224aee7ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set no-slip boundary condition at the indicated side.  <a href="#a0f368db36b7bb7a34dd3035224aee7ad">More...</a><br /></td></tr>
-<tr class="separator:a0f368db36b7bb7a34dd3035224aee7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ef189c1045a86b2dcdcda3d1231afaa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="boundaries_8h.html#a6ef189c1045a86b2dcdcda3d1231afaa">set_noslip</a> (int i_max, int j_max, double **u, double **v, int side)</td></tr>
+<tr class="memdesc:a6ef189c1045a86b2dcdcda3d1231afaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set no-slip boundary conditions at the indicated side.  <a href="#a6ef189c1045a86b2dcdcda3d1231afaa">More...</a><br /></td></tr>
+<tr class="separator:a6ef189c1045a86b2dcdcda3d1231afaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1458d39493a05e08110f562b089bdd9a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="boundaries_8h.html#a1458d39493a05e08110f562b089bdd9a">set_inflow</a> (int i_max, int j_max, double **u, double **v, int side, double u_fix, double v_fix)</td></tr>
+<tr class="memdesc:a1458d39493a05e08110f562b089bdd9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set inflow boundary conditions at the indicated side.  <a href="#a1458d39493a05e08110f562b089bdd9a">More...</a><br /></td></tr>
+<tr class="separator:a1458d39493a05e08110f562b089bdd9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements boundary conditions. </p>
 <dl class="section author"><dt>Author</dt><dd>Hollweck, Wigg </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>10 April 2019 Here typically goes a more extensive explanation of what the header defines. Doxygens tags are words preceeded by either a backslash \ or by an at symbol @. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.stack.nl/~dimitri/doxygen/docblocks.html">http://www.stack.nl/~dimitri/doxygen/docblocks.html</a> </dd>
-<dd>
-<a href="http://www.stack.nl/~dimitri/doxygen/commands.html">http://www.stack.nl/~dimitri/doxygen/commands.html</a> </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>11 April 2019 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a0f368db36b7bb7a34dd3035224aee7ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f368db36b7bb7a34dd3035224aee7ad">&#9670;&nbsp;</a></span>set_noslip()</h2>
+<a id="a1458d39493a05e08110f562b089bdd9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1458d39493a05e08110f562b089bdd9a">&#9670;&nbsp;</a></span>set_inflow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int set_inflow </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i_max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j_max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>side</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>u_fix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>v_fix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set inflow boundary conditions at the indicated side. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u</td><td>Velocity lattice (x-direction). Expects a two-dimensional array. </td></tr>
+    <tr><td class="paramname">v</td><td>Velocity lattice (y-direction). Expects a two-dimensional array. </td></tr>
+    <tr><td class="paramname">side</td><td>Which side to apply the boundary condition to. Should either be <code>TOP</code>, <code>BOTTOM</code>, <code>LEFT</code>, or <code>RIGHT</code>. </td></tr>
+    <tr><td class="paramname">u_fix</td><td>x-component of the fixed velocity. </td></tr>
+    <tr><td class="paramname">v_fix</td><td>y-component of the fixed velocity.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success. </dd></dl>
+
+</div>
+</div>
+<a id="a6ef189c1045a86b2dcdcda3d1231afaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ef189c1045a86b2dcdcda3d1231afaa">&#9670;&nbsp;</a></span>set_noslip()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -104,6 +182,18 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int set_noslip </td>
           <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i_max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j_max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">double **&#160;</td>
           <td class="paramname"><em>u</em>, </td>
         </tr>
@@ -127,15 +217,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set no-slip boundary condition at the indicated side. </p>
+<p>Set no-slip boundary conditions at the indicated side. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">u</td><td>Velocity lattice (x-direction). Expects a two-dimensional array. </td></tr>
     <tr><td class="paramname">v</td><td>Velocity lattice (y-direction). Expects a two-dimensional array. </td></tr>
-    <tr><td class="paramname">side</td><td>Which side to apply the boundary condition to. Should either be <code>TOP</code>, <code>BOTTOM</code>, <code>LEFT</code>, or <code>RIGHT</code>. </td></tr>
+    <tr><td class="paramname">side</td><td>Which side to apply the boundary condition to. Should either be <code>TOP</code>, <code>BOTTOM</code>, <code>LEFT</code>, or <code>RIGHT</code>.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success. </dd></dl>
 
 </div>
 </div>

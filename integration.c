@@ -70,13 +70,13 @@ double d2v_dy2(double** v, int i, int j, double delta_y) {
     return (v[i][j+1] - 2 * v[i][j] + v[i][j-1]) / (delta_y*delta_y);
 }
 
-double FG(double** F, double** G, double** u, double** v, int i_max, int j_max, double Re, double g_x, double g_y, double delta_t, double delta_x, double delta_y, double gamma) {
+int FG(double** F, double** G, double** u, double** v, int i_max, int j_max, double Re, double g_x, double g_y, double delta_t, double delta_x, double delta_y, double gamma) {
     int i, j;
     for (i = 1; i <= i_max; i++) {
         for(j = 1; j <= j_max; j++) {
             if (i <= i_max - 1) {
                 F[i][j] = u[i][j] +
-                            delta_t * (1/Re * (d2u_dx2(u, i, j, delta_x) +
+                            delta_t * (1.0/Re * (d2u_dx2(u, i, j, delta_x) +
                             d2u_dy2(u, i, j, delta_y)) -
                             du2_dx(u, v, i, j, delta_x, gamma) -
                             duv_dy(u, v, i, j, delta_y, gamma) +
@@ -85,7 +85,7 @@ double FG(double** F, double** G, double** u, double** v, int i_max, int j_max, 
 
             if (j <= j_max - 1) {
                 G[i][j] = v[i][j] +
-                            delta_t * (1/Re * (d2v_dx2(v, i, j, delta_x) +
+                            delta_t * (1.0/Re * (d2v_dx2(v, i, j, delta_x) +
                             d2v_dy2(v, i, j, delta_y)) -
                             duv_dx(u, v, i, j, delta_x, gamma) -
                             dv2_dy(u, v, i, j, delta_y, gamma) +
@@ -95,6 +95,8 @@ double FG(double** F, double** G, double** u, double** v, int i_max, int j_max, 
             // This part quickly segfaults since there are no values for u_imax+1 and v_jmax+1.
         }
     }
+
+    return 0;
 }
 
 /**

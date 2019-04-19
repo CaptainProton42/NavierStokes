@@ -14,20 +14,10 @@ This graph shows which files directly or indirectly include this file\+:
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{memory_8h_a7e7a18ec09bede9d8b83d26737bb75da}{allocate\+\_\+memory} (int i\+\_\+max, int j\+\_\+max)
-\begin{DoxyCompactList}\small\item\em Allocate memory for the three displaced lattices. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{memory_8h_a0f2aeac6016e514b2d5f807403e021a4}\label{memory_8h_a0f2aeac6016e514b2d5f807403e021a4}} 
-double $\ast$$\ast$ \hyperlink{memory_8h_a0f2aeac6016e514b2d5f807403e021a4}{u}
-\begin{DoxyCompactList}\small\item\em Velocity lattice in x direction. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{memory_8h_af4d037a1a2ce458635b6711394f91390}\label{memory_8h_af4d037a1a2ce458635b6711394f91390}} 
-double $\ast$$\ast$ \hyperlink{memory_8h_af4d037a1a2ce458635b6711394f91390}{v}
-\begin{DoxyCompactList}\small\item\em Velocity lattice in y direction. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{memory_8h_a634067c16f9b705012fdc68c20935f52}\label{memory_8h_a634067c16f9b705012fdc68c20935f52}} 
-double $\ast$$\ast$ \hyperlink{memory_8h_a634067c16f9b705012fdc68c20935f52}{p}
-\begin{DoxyCompactList}\small\item\em Pressure lattice. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \hyperlink{memory_8h_a9102262453a557ec3a67c5c2faf4711c}{allocate\+\_\+memory} (double $\ast$$\ast$$\ast$u, double $\ast$$\ast$$\ast$v, double $\ast$$\ast$$\ast$p, double $\ast$$\ast$$\ast$res, double $\ast$$\ast$$\ast$R\+HS, double $\ast$$\ast$$\ast$F, double $\ast$$\ast$$\ast$G, int i\+\_\+max, int j\+\_\+max)
+\begin{DoxyCompactList}\small\item\em Allocate memory for all grids used during integration. \end{DoxyCompactList}\item 
+int \hyperlink{memory_8h_a819720edc7656215b89e49614a535766}{free\+\_\+memory} (double $\ast$$\ast$$\ast$u, double $\ast$$\ast$$\ast$v, double $\ast$$\ast$$\ast$p, double $\ast$$\ast$$\ast$res, double $\ast$$\ast$$\ast$R\+HS, double $\ast$$\ast$$\ast$F, double $\ast$$\ast$$\ast$G)
+\begin{DoxyCompactList}\small\item\em Free memory of all grids used during integration. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -37,28 +27,65 @@ Memory management.
 Hollweck, Wigg 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-10 April 2019 Here typically goes a more extensive explanation of what the header defines. Doxygens tags are words preceeded by either a backslash \textbackslash{} or by an at symbol @. 
+10 April 2019 
 \end{DoxyDate}
-\begin{DoxySeeAlso}{See also}
-\href{http://www.stack.nl/~dimitri/doxygen/docblocks.html}{\tt http\+://www.\+stack.\+nl/$\sim$dimitri/doxygen/docblocks.\+html} 
-
-\href{http://www.stack.nl/~dimitri/doxygen/commands.html}{\tt http\+://www.\+stack.\+nl/$\sim$dimitri/doxygen/commands.\+html} 
-\end{DoxySeeAlso}
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{memory_8h_a7e7a18ec09bede9d8b83d26737bb75da}\label{memory_8h_a7e7a18ec09bede9d8b83d26737bb75da}} 
+\mbox{\Hypertarget{memory_8h_a9102262453a557ec3a67c5c2faf4711c}\label{memory_8h_a9102262453a557ec3a67c5c2faf4711c}} 
 \index{memory.\+h@{memory.\+h}!allocate\+\_\+memory@{allocate\+\_\+memory}}
 \index{allocate\+\_\+memory@{allocate\+\_\+memory}!memory.\+h@{memory.\+h}}
 \subsubsection{\texorpdfstring{allocate\+\_\+memory()}{allocate\_memory()}}
-{\footnotesize\ttfamily int allocate\+\_\+memory (\begin{DoxyParamCaption}\item[{int}]{i\+\_\+max,  }\item[{int}]{j\+\_\+max }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int allocate\+\_\+memory (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$$\ast$}]{u,  }\item[{double $\ast$$\ast$$\ast$}]{v,  }\item[{double $\ast$$\ast$$\ast$}]{p,  }\item[{double $\ast$$\ast$$\ast$}]{res,  }\item[{double $\ast$$\ast$$\ast$}]{R\+HS,  }\item[{double $\ast$$\ast$$\ast$}]{F,  }\item[{double $\ast$$\ast$$\ast$}]{G,  }\item[{int}]{i\+\_\+max,  }\item[{int}]{j\+\_\+max }\end{DoxyParamCaption})}
 
 
 
-Allocate memory for the three displaced lattices. 
+Allocate memory for all grids used during integration. 
 
 
 \begin{DoxyParams}{Parameters}
+{\em u} & Velocity lattice x-\/component. \\
+\hline
+{\em v} & Velociry lattice y-\/component. \\
+\hline
+{\em p} & pressure lattice. \\
+\hline
+{\em residuum} & grid. \\
+\hline
+{\em grid} & storing R\+HS of poission equation. \\
+\hline
+{\em i\+\_\+max} & Lattice dimension in x-\/direction. \\
+\hline
+{\em j\+\_\+max} & Lattice dimension in y-\/direction. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on finish. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{memory_8h_a819720edc7656215b89e49614a535766}\label{memory_8h_a819720edc7656215b89e49614a535766}} 
+\index{memory.\+h@{memory.\+h}!free\+\_\+memory@{free\+\_\+memory}}
+\index{free\+\_\+memory@{free\+\_\+memory}!memory.\+h@{memory.\+h}}
+\subsubsection{\texorpdfstring{free\+\_\+memory()}{free\_memory()}}
+{\footnotesize\ttfamily int free\+\_\+memory (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$$\ast$}]{u,  }\item[{double $\ast$$\ast$$\ast$}]{v,  }\item[{double $\ast$$\ast$$\ast$}]{p,  }\item[{double $\ast$$\ast$$\ast$}]{res,  }\item[{double $\ast$$\ast$$\ast$}]{R\+HS,  }\item[{double $\ast$$\ast$$\ast$}]{F,  }\item[{double $\ast$$\ast$$\ast$}]{G }\end{DoxyParamCaption})}
+
+
+
+Free memory of all grids used during integration. 
+
+Allocate memory for all grids used during integration.
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Velocity lattice x-\/component. \\
+\hline
+{\em v} & Velociry lattice y-\/component. \\
+\hline
+{\em p} & pressure lattice. \\
+\hline
+{\em residuum} & grid. \\
+\hline
+{\em grid} & storing R\+HS of poission equation. \\
+\hline
 {\em i\+\_\+max} & Lattice dimension in x-\/direction. \\
 \hline
 {\em j\+\_\+max} & Lattice dimension in y-\/direction. \\

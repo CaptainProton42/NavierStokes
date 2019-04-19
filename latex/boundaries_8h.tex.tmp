@@ -1,0 +1,88 @@
+\hypertarget{boundaries_8h}{}\section{boundaries.\+h File Reference}
+\label{boundaries_8h}\index{boundaries.\+h@{boundaries.\+h}}
+
+
+Implements boundary conditions.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{boundaries_8h_a06fc87d81c62e9abb8790b6e5713c55b}\label{boundaries_8h_a06fc87d81c62e9abb8790b6e5713c55b}} 
+enum \{ {\bfseries T\+OP} = 0, 
+{\bfseries B\+O\+T\+T\+OM} = 1, 
+{\bfseries L\+E\+FT} = 2, 
+{\bfseries R\+I\+G\+HT} = 3
+ \}\begin{DoxyCompactList}\small\item\em Defines the sides of the box. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{boundaries_8h_a6ef189c1045a86b2dcdcda3d1231afaa}{set\+\_\+noslip} (int i\+\_\+max, int j\+\_\+max, double $\ast$$\ast$u, double $\ast$$\ast$v, int side)
+\begin{DoxyCompactList}\small\item\em Set no-\/slip boundary conditions at the indicated side. \end{DoxyCompactList}\item 
+int \hyperlink{boundaries_8h_a1458d39493a05e08110f562b089bdd9a}{set\+\_\+inflow} (int i\+\_\+max, int j\+\_\+max, double $\ast$$\ast$u, double $\ast$$\ast$v, int side, double u\+\_\+fix, double v\+\_\+fix)
+\begin{DoxyCompactList}\small\item\em Set inflow boundary conditions at the indicated side. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implements boundary conditions. 
+
+\begin{DoxyAuthor}{Author}
+Hollweck, Wigg 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11 April 2019 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{boundaries_8h_a1458d39493a05e08110f562b089bdd9a}\label{boundaries_8h_a1458d39493a05e08110f562b089bdd9a}} 
+\index{boundaries.\+h@{boundaries.\+h}!set\+\_\+inflow@{set\+\_\+inflow}}
+\index{set\+\_\+inflow@{set\+\_\+inflow}!boundaries.\+h@{boundaries.\+h}}
+\subsubsection{\texorpdfstring{set\+\_\+inflow()}{set\_inflow()}}
+{\footnotesize\ttfamily int set\+\_\+inflow (\begin{DoxyParamCaption}\item[{int}]{i\+\_\+max,  }\item[{int}]{j\+\_\+max,  }\item[{double $\ast$$\ast$}]{u,  }\item[{double $\ast$$\ast$}]{v,  }\item[{int}]{side,  }\item[{double}]{u\+\_\+fix,  }\item[{double}]{v\+\_\+fix }\end{DoxyParamCaption})}
+
+
+
+Set inflow boundary conditions at the indicated side. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Velocity lattice (x-\/direction). Expects a two-\/dimensional array. \\
+\hline
+{\em v} & Velocity lattice (y-\/direction). Expects a two-\/dimensional array. \\
+\hline
+{\em side} & Which side to apply the boundary condition to. Should either be {\ttfamily T\+OP}, {\ttfamily B\+O\+T\+T\+OM}, {\ttfamily L\+E\+FT}, or {\ttfamily R\+I\+G\+HT}. \\
+\hline
+{\em u\+\_\+fix} & x-\/component of the fixed velocity. \\
+\hline
+{\em v\+\_\+fix} & y-\/component of the fixed velocity.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{boundaries_8h_a6ef189c1045a86b2dcdcda3d1231afaa}\label{boundaries_8h_a6ef189c1045a86b2dcdcda3d1231afaa}} 
+\index{boundaries.\+h@{boundaries.\+h}!set\+\_\+noslip@{set\+\_\+noslip}}
+\index{set\+\_\+noslip@{set\+\_\+noslip}!boundaries.\+h@{boundaries.\+h}}
+\subsubsection{\texorpdfstring{set\+\_\+noslip()}{set\_noslip()}}
+{\footnotesize\ttfamily int set\+\_\+noslip (\begin{DoxyParamCaption}\item[{int}]{i\+\_\+max,  }\item[{int}]{j\+\_\+max,  }\item[{double $\ast$$\ast$}]{u,  }\item[{double $\ast$$\ast$}]{v,  }\item[{int}]{side }\end{DoxyParamCaption})}
+
+
+
+Set no-\/slip boundary conditions at the indicated side. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Velocity lattice (x-\/direction). Expects a two-\/dimensional array. \\
+\hline
+{\em v} & Velocity lattice (y-\/direction). Expects a two-\/dimensional array. \\
+\hline
+{\em side} & Which side to apply the boundary condition to. Should either be {\ttfamily T\+OP}, {\ttfamily B\+O\+T\+T\+OM}, {\ttfamily L\+E\+FT}, or {\ttfamily R\+I\+G\+HT}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}

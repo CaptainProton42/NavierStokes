@@ -46,8 +46,14 @@ int main()
     double Re; // Reynolds number;
     double delta_t, delta_x, delta_y; // Step sizes.
     double T; // Max time.
+    double g_x;
+    double g_y;
+    double tau;
 
-	init(&i_max, &j_max, &a, &b, &Re, &T, &delta_x, &delta_y);
+	init(&i_max, &j_max, &a, &b, &Re, &T, &g_x, &g_y, &tau);
+
+    delta_x = a / i_max;
+    delta_y = b / j_max;
 
     printf("Initialized!\n");
 
@@ -56,11 +62,7 @@ int main()
     printf("Memory allocated.\n");
 
     // Steps.
-    delta_t = 0.01; // initial stepsize
-    double g_x = 0.0;
-    double g_y = -9.81;
     double gamma = 0.1;
-    double tau = 1.0;
     double t = 0;
     int i, j;
     int n = 0;
@@ -77,9 +79,9 @@ int main()
 
         // Set boundary conditions.
         set_noslip(i_max, j_max, u, v, LEFT);
-        set_noslip(i_max, j_max, u, v, RIGHT);
+        set_noslip(i_max, j_max, u, v, TOP);
         set_noslip(i_max, j_max, u, v, BOTTOM);
-        set_inflow(i_max, j_max, u, v, TOP, 10.0, 0.0);
+        set_inflow(i_max, j_max, u, v, RIGHT, 0.0, 10.0);
 
         printf("Conditions set!\n");
 

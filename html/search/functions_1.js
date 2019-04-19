@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.c']]]
+  ['biggest_5fnumber',['biggest_number',['../io_8h.html#a64f4eb5c5521ed1248deb5558afdb3dc',1,'io.c']]]
 ];
