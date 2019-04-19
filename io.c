@@ -1,5 +1,4 @@
 #include "io.h"
-/*#include "globals.h"*/
 #include "memory.h"
 #include "integration.h"
 

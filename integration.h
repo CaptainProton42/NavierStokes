@@ -2,7 +2,7 @@
  * @file integration.h
  * @author Hollweck, Wigg
  * @date 10 April 2019
- * @brief Stencils.
+ * @brief Implements stencils, calculation of F and G as well as the SOR algorithm.
  */
 
 
