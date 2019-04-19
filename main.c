@@ -17,6 +17,8 @@
 #include "boundaries.h"
 #include "math.h"
 
+#include <stdio.h>
+
 
 /**
  * @brief Main function.
@@ -61,6 +63,7 @@ int main()
     double tau = 1.0;
     double t = 0;
     int i, j;
+    int n = 0;
 
     while (t < T) {
         printf("%.5f / %.5f\n---------------------\n", t, T);
@@ -76,7 +79,7 @@ int main()
         set_noslip(i_max, j_max, u, v, LEFT);
         set_noslip(i_max, j_max, u, v, RIGHT);
         set_noslip(i_max, j_max, u, v, BOTTOM);
-        set_inflow(i_max, j_max, u, v, TOP, 0.0, 1.0);
+        set_inflow(i_max, j_max, u, v, TOP, 10.0, 0.0);
 
         printf("Conditions set!\n");
 
@@ -107,13 +110,14 @@ int main()
         }
 
         printf("Velocities updatet!\n");
-
-
+        char out_prefix[12];
+        sprintf(out_prefix, "out/%d", n);
+        output(i_max, j_max, u, v, p, out_prefix);
 
         t += delta_t;
+        n++;
     }
 
-	output(i_max, j_max, u, v, p);
     free_memory(&u, &v, &p, &res, &RHS, &F, &G);
     free(conditions);
     return 0;

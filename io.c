@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* delta_x, double* delta_y)
 {	
@@ -44,14 +45,26 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
    return 0;
 }
 
-int output(int i_max, int j_max, double** u, double** v, double** p)
+int output(int i_max, int j_max, double** u, double** v, double** p, const char* prefix)
 {
 	int i, j;
 
+    char fname_u[64];
+    char fname_v[64];
+    char fname_p[64];
+
+    strcpy(fname_u, prefix);
+    strcpy(fname_v, prefix);
+    strcpy(fname_p, prefix);
+
+    strcat(fname_u, "_u.txt");
+    strcat(fname_v, "_v.txt");
+    strcat(fname_p, "_p.txt");
+
     FILE* fp_u,* fp_v, * fp_p;
-    fp_u = fopen("u.txt", "w");
-    fp_v = fopen("v.txt", "w");
-    fp_p = fopen("p.txt", "w");
+    fp_u = fopen(fname_u, "w");
+    fp_v = fopen(fname_v, "w");
+    fp_p = fopen(fname_p, "w");
 
 
     // Rows first, then columns
