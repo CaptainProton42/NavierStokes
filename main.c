@@ -70,14 +70,12 @@ int main()
     while (t < T) {
         printf("%.5f / %.5f\n---------------------\n", t, T);
 
-    	// Adaptive stepsize
+    	// Adaptive stepsize and weight factor for Donor-Cell
         double u_max = max_mat(i_max, j_max, u);
         double v_max = max_mat(i_max, j_max, v);
 
-    	delta_t = tau * n_min(3, (Re/2.0)*(1.0 / ( (1.0 /(delta_x) * (1.0 /delta_x)) + (1.0 /(delta_y) * (1.0 /delta_y)) )), delta_x / fabs(u_max), delta_y / fabs(v_max));
-
+    	delta_t = tau * n_min(3, Re / 2.0 / ( 1.0 / delta_x / delta_x + 1.0 / delta_y / delta_y ), delta_x / fabs(u_max), delta_y / fabs(v_max));
         gamma = fmax(u_max * delta_t / delta_x, v_max * delta_t / delta_y);
-
 
         // Set boundary conditions.
         set_noslip(i_max, j_max, u, v, LEFT);

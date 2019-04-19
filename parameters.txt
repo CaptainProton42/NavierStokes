@@ -1,7 +1,7 @@
 500 	# i_max
 500 	# j_max
-1 		# Side a length
-1 		# Side b length
+8		# Side a length
+8 		# Side b length
 1 		# Time to integrate
 100 	# Reynolds number
 0 		# x-component of g
