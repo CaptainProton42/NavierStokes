@@ -162,4 +162,4 @@ double dp_dy(double** p, int i, int j, double delta_y);
 /**
  * @brief Implements the successive overrelaxation algorithm for calculating new pressure grid.
  */
-int SOR(double** p, int i_max, int j_max, double delta_x, double delta_y, double** res, double** RHS, double omega, double eps);
+int SOR(double** p, int i_max, int j_max, double delta_x, double delta_y, double** res, double** RHS, double omega, double eps, int max_it);

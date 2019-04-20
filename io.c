@@ -47,13 +47,14 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
     return 0;
 }
 
-int output(int i_max, int j_max, double** u, double** v, double** p, const char* prefix)
+int output(int i_max, int j_max, double** u, double** v, double** p, double t, double a, double b, const char* prefix)
 {
 	int i, j;
 
     char fname_u[64];
     char fname_v[64];
     char fname_p[64];
+    char fname_t[64];
 
     strcpy(fname_u, prefix);
     strcpy(fname_v, prefix);
@@ -68,6 +69,18 @@ int output(int i_max, int j_max, double** u, double** v, double** p, const char*
     fp_v = fopen(fname_v, "w");
     fp_p = fopen(fname_p, "w");
 
+    // Header
+    fprintf(fp_p, "%.5f\n", t);
+    fprintf(fp_p, "%.5f\n", a);
+    fprintf(fp_p, "%.5f\n", b);
+
+    fprintf(fp_u, "%.5f\n", t);
+    fprintf(fp_u, "%.5f\n", a);
+    fprintf(fp_u, "%.5f\n", b);
+
+    fprintf(fp_v, "%.5f\n", t);
+    fprintf(fp_v, "%.5f\n", a);
+    fprintf(fp_v, "%.5f\n", b);
 
     // Rows first, then columns
     for (j = 0; j < j_max + 2; j++) {

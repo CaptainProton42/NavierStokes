@@ -1,22 +1,30 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib as mpl
 from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+import numpy as np
 
-pgf_with_latex = {                      # setup matplotlib to use latex for output# {{{
-    "pgf.texsystem": "pdflatex",        # change this if using xetex or lautex
-    "text.usetex": True,                # use latex to write all text
-    "font.family": "serif",
-    "pgf.preamble": [
-        r"\usepackage[utf8x]{inputenc}",    # use utf8 fonts
-        r"\usepackage[T1]{fontenc}",
-        r"\usepackage[ngerman]{babel}",
-        r"\usepackage{amsmath}"
-        ]                                   # using this preamble
-    }
 
-mpl.rcParams.update(pgf_with_latex)
+fig = plt.figure()
+ax = fig.gca(projection='3d')
 
-p = np.genfromtxt("p.txt")
+N = 200
 
-plt.imshow(p)
+p = np.genfromtxt("poisson_p.txt")[1:N+1, 1:N+1]
+
+X = np.arange(0, 1, 1/N)
+Y = np.arange(0, 1, 1/N)
+
+X, Y = np.meshgrid(X, Y)
+
+surf = ax.plot_surface(X, Y, p, cmap=cm.coolwarm,
+                       linewidth=0, antialiased=False)
+
+# Customize the z axis.
+ax.zaxis.set_major_locator(LinearLocator(10))
+ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+
+# Add a color bar which maps values to colors.
+fig.colorbar(surf, shrink=0.5, aspect=5)
+
+plt.show()

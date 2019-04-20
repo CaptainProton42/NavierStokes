@@ -76,8 +76,7 @@ int FG(double** F, double** G, double** u, double** v, int i_max, int j_max, dou
         for(j = 1; j <= j_max; j++) {
             if (i <= i_max - 1) {
                 F[i][j] = u[i][j] +
-                            delta_t * (1.0/Re * (d2u_dx2(u, i, j, delta_x) +
-                            d2u_dy2(u, i, j, delta_y)) -
+                            delta_t * (1.0/Re * (d2u_dx2(u, i, j, delta_x) + d2u_dy2(u, i, j, delta_y)) -
                             du2_dx(u, v, i, j, delta_x, gamma) -
                             duv_dy(u, v, i, j, delta_y, gamma) +
                             g_x);
@@ -85,14 +84,11 @@ int FG(double** F, double** G, double** u, double** v, int i_max, int j_max, dou
 
             if (j <= j_max - 1) {
                 G[i][j] = v[i][j] +
-                            delta_t * (1.0/Re * (d2v_dx2(v, i, j, delta_x) +
-                            d2v_dy2(v, i, j, delta_y)) -
+                            delta_t * (1.0/Re * (d2v_dx2(v, i, j, delta_x) + d2v_dy2(v, i, j, delta_y)) -
                             duv_dx(u, v, i, j, delta_x, gamma) -
                             dv2_dy(u, v, i, j, delta_y, gamma) +
                             g_y);
             }
-
-            // This part quickly segfaults since there are no values for u_imax+1 and v_jmax+1.
         }
     }
 
@@ -130,16 +126,14 @@ double L2(double** m, int i_max, int j_max) {
 /**
  * @brief SOR.
  */
-int SOR(double** p, int i_max, int j_max, double delta_x, double delta_y, double** res, double** RHS, double omega, double eps) {
+int SOR(double** p, int i_max, int j_max, double delta_x, double delta_y, double** res, double** RHS, double omega, double eps, int max_it) {
     int i, j;
     double dydy = delta_y * delta_y;
     double dxdx = delta_x * delta_x;
-
-    int it_max = 500;
     int it = 0;
 
     double norm_p = L2(p, i_max, j_max);    // L2 norm of grid.
-    while (1) {
+    while (it < max_it) {
         // Fill ghost cells with values of neighbourng cells for new iteration step.
         for (j = 1; j <= j_max; j++)
         {
@@ -150,7 +144,6 @@ int SOR(double** p, int i_max, int j_max, double delta_x, double delta_y, double
             p[i][0] = p[i][1];
             p[i][j_max+1] = p[i][j_max];
         }
-
         
         // Iterate through grid a calculate new values.
         for (i = 1; i <= i_max; i++) {
@@ -168,14 +161,13 @@ int SOR(double** p, int i_max, int j_max, double delta_x, double delta_y, double
 
         //printf("%.5f\n", L2(res, i_max, j_max));
         // Abortion condition.
-        if (L2(res, i_max, j_max) <= eps * norm_p + 0.00001) {
+        if (L2(res, i_max, j_max) <= eps * (norm_p + 0.01)) {
             return 0;
         }
 
         it++;
-        if (it > it_max) return 0;
     }
 
-    // This should never be reached.
+    // Return -1 if maximmum iterations where exceeded.
     return -1;
 }
