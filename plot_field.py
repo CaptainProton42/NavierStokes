@@ -5,9 +5,16 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 from matplotlib.colors import BoundaryNorm
 import numpy as np
 from skimage.transform import resize
+
+# Enable looped gif by overwriting the PillowWriter class and adding loop=0
+class myPillow(anim.PillowWriter):
+    def finish(self):
+        self._frames[0].save(
+            self._outfile, save_all=True, append_images=self._frames[1:],
+            duration=int(1000 / self.fps), loop=0)
+
 #constants
-FRAMENUM = 30	# number of files/frames to animate
-RENDERVID = 1 	# set to 1 for video render (needs ffmpeg and can also take a while)
+FRAMENUM = 90	# number of files/frames to animate
 FPS = 30
 
 u = np.genfromtxt("out/0_u.txt", skip_header=3)[1:500, 1:500]
@@ -57,13 +64,10 @@ def animate(n):
         v_red = resize(v, (11, 11))
         vec.set_UVC(u_red, v_red)
         new_frame = False
-    print("Frame:", n)
+    print("Frame "  + str(n) + " / " + str(FRAMENUM))
     return speed, vec
 
+writer = myPillow()
+writer.fps = FPS
 animation = anim.FuncAnimation(fig, animate, frames=FRAMENUM, interval = 16, blit=True)
-plt.show()
-
-if (RENDERVID == 1):
-	plt.rcParams['animation.ffmpeg_path'] = 'C:/FFmpeg/bin/ffmpeg.exe'	
-	#mywriter = anim.FFMpegWriter(fps=FPS)
-	animation.save('plot.gif', writer='pillow', fps=FPS)
+animation.save('plot.gif', writer=writer)
