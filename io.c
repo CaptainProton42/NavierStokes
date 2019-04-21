@@ -9,7 +9,7 @@
 #include <string.h>
 #include <stdarg.h>
 
-int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* g_x, double* g_y, double* tau, int* n_print)
+int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* g_x, double* g_y, double* tau, double* omega, double* epsilon, int* max_it, int* n_print)
 {	
 
 	int n = 20; // Maximal number of input parameters
@@ -23,6 +23,7 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
       exit(EXIT_FAILURE);
    }
 
+    // Read file line-by-line to buffer and extract the values.
     fgets(buffer, 256, f);
     sscanf(buffer, "%d", i_max);
     fgets(buffer, 256, f);
@@ -41,6 +42,12 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
     sscanf(buffer, "%lf", g_y);
     fgets(buffer, 256, f);
     sscanf(buffer, "%lf", tau);
+    sscanf(buffer, "%lf", omega);
+    fgets(buffer, 256, f);
+    sscanf(buffer, "%lf", epsilon);
+    fgets(buffer, 256, f);
+    sscanf(buffer, "%d", max_it);
+    fgets(buffer, 256, f);
     fgets(buffer, 256, f);
     sscanf(buffer, "%d", n_print);
 
@@ -70,6 +77,12 @@ int output(int i_max, int j_max, double** u, double** v, double** p, double t, d
     fp_u = fopen(fname_u, "w");
     fp_v = fopen(fname_v, "w");
     fp_p = fopen(fname_p, "w");
+
+    if (fp_u == NULL || fp_v == NULL || fp_p == NULL)
+    {
+      perror("Error opening one ore more output files. Make sure the directory 'out' exists.\n");
+      exit(EXIT_FAILURE);
+    }
 
     // Header
     fprintf(fp_p, "%.5f\n", t);

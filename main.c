@@ -46,9 +46,12 @@ int main()
     double g_x;
     double g_y;
     double tau;
+    double omega;
+    double epsilon;
+    int max_it;
     int n_print;
 
-	init(&i_max, &j_max, &a, &b, &Re, &T, &g_x, &g_y, &tau, &n_print);
+	init(&i_max, &j_max, &a, &b, &Re, &T, &g_x, &g_y, &tau, &omega, &epsilon, &max_it, &n_print);
     printf("Initialized!\n");
 
     delta_x = a / i_max;
@@ -98,7 +101,7 @@ int main()
 
         printf("RHS calculated!\n");
 
-        if (SOR(p, i_max, j_max, delta_x, delta_y, res, RHS, 1.7, 0.0001, 200) == -1) printf("Maximum SOR iterations exceeded!\n");
+        if (SOR(p, i_max, j_max, delta_x, delta_y, res, RHS, omega, epsilon, max_it) == -1) printf("Maximum SOR iterations exceeded!\n");
 
         printf("SOR complete!\n");
 

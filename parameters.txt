@@ -7,4 +7,7 @@
 0.0 	    # x-component of g
 0.0 	    # y-component of g
 1.0		    # Security factor tau.
+1.7         # Relaxtion factor for SOR. (1.0 is Gauß-Seidel)
+200         # Maximum iterations for SOR.
+0.0001      # Relative tolerance for SOR.
 10          # Print results to file every nth step.

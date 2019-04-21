@@ -14,7 +14,7 @@ class myPillow(anim.PillowWriter):
             duration=int(1000 / self.fps), loop=0)
 
 #constants
-FRAMENUM = 10	# number of files/frames to animate
+FRAMENUM = 60	# number of files/frames to animate
 FPS = 30
 
 u = np.genfromtxt("out/0_u.txt", skip_header=3)[1:500, 1:500]
