@@ -14,7 +14,7 @@ class myPillow(anim.PillowWriter):
             duration=int(1000 / self.fps), loop=0)
 
 #constants
-FRAMENUM = 90	# number of files/frames to animate
+FRAMENUM = 900	# number of files/frames to animate
 FPS = 30
 
 u = np.genfromtxt("out/0_u.txt", skip_header=3)[1:500, 1:500]
@@ -39,7 +39,7 @@ loc = mpl.ticker.LogLocator()
 bar = fig.colorbar(speed, cax=cax, orientation='vertical', format=mpl.ticker.LogFormatterSciNotation())
 
 # Plot vector field.
-vec = ax.quiver(u_red, v_red, scale=0.5, color="white")
+vec = ax.quiver(u_red, v_red, scale=2.0, color="white")
 
 plt.tight_layout()
 
