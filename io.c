@@ -42,12 +42,12 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
     sscanf(buffer, "%lf", g_y);
     fgets(buffer, 256, f);
     sscanf(buffer, "%lf", tau);
+    fgets(buffer, 256, f);
     sscanf(buffer, "%lf", omega);
     fgets(buffer, 256, f);
     sscanf(buffer, "%lf", epsilon);
     fgets(buffer, 256, f);
     sscanf(buffer, "%d", max_it);
-    fgets(buffer, 256, f);
     fgets(buffer, 256, f);
     sscanf(buffer, "%d", n_print);
 

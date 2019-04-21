@@ -13,7 +13,7 @@
     {
         (*p)[i] = (double*) calloc(j_max + 2, sizeof(double));
         (*v)[i] = (double*) calloc(j_max + 1, sizeof(double)); /* v values on the top edges of the ghost cells are not needed */
-        if (i < i_max+1) {
+        if (i < i_max + 1) {
             (*u)[i] = (double*) calloc(j_max + 2, sizeof(double));
         }
         (*res)[i] = (double*) calloc(j_max + 2, sizeof(double));
