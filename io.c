@@ -9,7 +9,7 @@
 #include <string.h>
 #include <stdarg.h>
 
-int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* g_x, double* g_y, double* tau)
+int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* g_x, double* g_y, double* tau, int* n_print)
 {	
 
 	int n = 20; // Maximal number of input parameters
@@ -41,6 +41,8 @@ int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, do
     sscanf(buffer, "%lf", g_y);
     fgets(buffer, 256, f);
     sscanf(buffer, "%lf", tau);
+    fgets(buffer, 256, f);
+    sscanf(buffer, "%d", n_print);
 
     fclose(f);
 

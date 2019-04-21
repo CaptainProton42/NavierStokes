@@ -1,9 +1,10 @@
-500 	# i_max
-500 	# j_max
-1.0	# Side a length
-1.0	# Side b length
-30.0 	# Time to integrate
-10000.0 	# Reynolds number
-0.0 	# x-component of g
-0.0 	# y-component of g
-1.0		# Security factor tau.
+500 	    # i_max
+500 	    # j_max
+1.0	        # Side a length
+1.0	        # Side b length
+30.0 	    # Time to integrate
+1000.0 	    # Reynolds number
+0.0 	    # x-component of g
+0.0 	    # y-component of g
+1.0		    # Security factor tau.
+10          # Print results to file every nth step.
