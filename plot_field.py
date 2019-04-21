@@ -14,7 +14,7 @@ class myPillow(anim.PillowWriter):
             duration=int(1000 / self.fps), loop=0)
 
 #constants
-FRAMENUM = 60	# number of files/frames to animate
+FRAMENUM = 90	# number of files/frames to animate
 FPS = 30
 
 u = np.genfromtxt("out/0_u.txt", skip_header=3)[1:500, 1:500]
@@ -29,7 +29,7 @@ ax = fig.gca()
 
 # Plot colormap.
 cmap = mpl.cm.get_cmap('viridis')
-norm = BoundaryNorm(np.logspace(-5, 0, 11), cmap.N);
+norm = BoundaryNorm(np.logspace(-5, 0, 21), cmap.N);
 speed = ax.imshow(s, norm = norm, origin = "lower", extent = (0, 10, 0, 10))
 
 # Plot colorbar.
@@ -71,3 +71,5 @@ writer = myPillow()
 writer.fps = FPS
 animation = anim.FuncAnimation(fig, animate, frames=FRAMENUM, interval = 16, blit=True)
 animation.save('plot.gif', writer=writer)
+
+plt.savefig("out.pdf")
