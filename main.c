@@ -54,6 +54,8 @@ int main()
 	init(&i_max, &j_max, &a, &b, &Re, &T, &g_x, &g_y, &tau, &omega, &epsilon, &max_it, &n_print);
     printf("Initialized!\n");
 
+    printf("%d\n%d\n%f\n%f\n%f\n%f\n%f\n%f\n%f\n%f\n%f\n%d\n%d\n", i_max, j_max, a, b, Re, T, g_x, g_y, tau, omega, epsilon, max_it, n_print);
+
     delta_x = a / i_max;
     delta_y = b / j_max;
 

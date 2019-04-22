@@ -10,9 +10,7 @@
 #include <stdarg.h>
 
 int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* g_x, double* g_y, double* tau, double* omega, double* epsilon, int* max_it, int* n_print)
-{	
-
-	int n = 20; // Maximal number of input parameters
+{
     char buffer[256];
 	FILE *f;
 	f = fopen("parameters.txt", "r");
