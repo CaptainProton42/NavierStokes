@@ -14,4 +14,4 @@ The included makefile should work with gcc out of the box. Simply type `make` to
 
 # Parameters and Running
 
-`parameters.txt` stores all necessary information to run a simulation. The file is comented so any adjustments you'd want to make should be self-explanatory. A simulation can be run by executing `main`, just type `./main`. Plots can be created via the included `.py` scripts. The scripts might need to be tweaked depending on your simulation parameters but are also commented.
+`parameters.txt` stores all necessary information to run a simulation. The file is comented so any adjustments you'd want to make should be self-explanatory. A simulation can be run by executing `main`, just type `./main`. Plots can be created via the included `.py` scripts. The scripts might need to be tweaked depending on your simulation parameters but are also commented. Make sure to create the directories `obj` and `out` by yourself before building or running, respectively.
