@@ -50,11 +50,11 @@ int main()
     double epsilon;
     int max_it;
     int n_print;
+    int problem;
+    double f;
 
-	init(&i_max, &j_max, &a, &b, &Re, &T, &g_x, &g_y, &tau, &omega, &epsilon, &max_it, &n_print);
+	init(&problem, &f, &i_max, &j_max, &a, &b, &Re, &T, &g_x, &g_y, &tau, &omega, &epsilon, &max_it, &n_print);
     printf("Initialized!\n");
-
-    printf("%d\n%d\n%f\n%f\n%f\n%f\n%f\n%f\n%f\n%f\n%f\n%d\n%d\n", i_max, j_max, a, b, Re, T, g_x, g_y, tau, omega, epsilon, max_it, n_print);
 
     delta_x = a / i_max;
     delta_y = b / j_max;
@@ -82,10 +82,20 @@ int main()
         gamma = fmax(u_max * delta_t / delta_x, v_max * delta_t / delta_y);
 
         // Set boundary conditions.
-        set_noslip(i_max, j_max, u, v, LEFT);
-        set_noslip(i_max, j_max, u, v, RIGHT);
-        set_noslip(i_max, j_max, u, v, BOTTOM);
-        set_inflow(i_max, j_max, u, v, TOP, 1.0, 0.0);
+        if (problem == 1) {
+            set_noslip(i_max, j_max, u, v, LEFT);
+            set_noslip(i_max, j_max, u, v, RIGHT);
+            set_noslip(i_max, j_max, u, v, BOTTOM);
+            set_inflow(i_max, j_max, u, v, TOP, 1.0, 0.0);
+        } else if (problem == 2) {
+            set_noslip(i_max, j_max, u, v, LEFT);
+            set_noslip(i_max, j_max, u, v, RIGHT);
+            set_noslip(i_max, j_max, u, v, BOTTOM);
+            set_inflow(i_max, j_max, u, v, TOP, sin(f*t), 0.0);           
+        } else {
+            printf("Unknown probem type (see parameters.txt).\n");
+            exit(EXIT_FAILURE);
+        }
 
         printf("Conditions set!\n");
 

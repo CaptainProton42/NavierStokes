@@ -2,4 +2,8 @@
 obj/
 out/
 main
-*.mp4
+# Ignore gifs and pdfs in root but not in media subfolder.
+*.gif
+*.pdf
+!/media/*.gif
+!/media/*.pdf

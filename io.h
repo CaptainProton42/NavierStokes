@@ -11,7 +11,7 @@
 /**
 * @brief Initializes given parameters.
 */
-int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* g_x, double *g_y, double* tau, double* omega, double* epsilon, int* max_it, int* n_print);
+int init(int* problem, double* f, int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* g_x, double *g_y, double* tau, double* omega, double* epsilon, int* max_it, int* n_print);
 
 /**
 * @brief Writes grid values to disk.

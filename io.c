@@ -9,47 +9,51 @@
 #include <string.h>
 #include <stdarg.h>
 
-int init(int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* g_x, double* g_y, double* tau, double* omega, double* epsilon, int* max_it, int* n_print)
+int init(int* problem, double* f, int* i_max, int* j_max, double* a, double* b, double* Re, double* T, double* g_x, double* g_y, double* tau, double* omega, double* epsilon, int* max_it, int* n_print)
 {
     char buffer[256];
-	FILE *f;
-	f = fopen("parameters.txt", "r");
+	FILE *fp;
+	fp = fopen("parameters.txt", "r");
 
-   if (f == NULL)
+   if (fp == NULL)
    {
       perror("Error while opening the file.\n");
       exit(EXIT_FAILURE);
    }
 
     // Read file line-by-line to buffer and extract the values.
-    fgets(buffer, 256, f);
+    fgets(buffer, 256, fp);
+    sscanf(buffer, "%d", problem);
+    fgets(buffer, 256, fp);
+    sscanf(buffer, "%lf", f);
+    fgets(buffer, 256, fp);
     sscanf(buffer, "%d", i_max);
-    fgets(buffer, 256, f);
+    fgets(buffer, 256, fp);
     sscanf(buffer, "%d", j_max);
-    fgets(buffer, 256, f);
+    fgets(buffer, 256, fp);
     sscanf(buffer, "%lf", a);
-    fgets(buffer, 256, f);
+    fgets(buffer, 256, fp);
     sscanf(buffer, "%lf", b);
-    fgets(buffer, 256, f);
+    fgets(buffer, 256, fp);
     sscanf(buffer, "%lf", T);
-    fgets(buffer, 256, f);
+    fgets(buffer, 256, fp);
     sscanf(buffer, "%lf", Re);
-    fgets(buffer, 256, f);
+    fgets(buffer, 256, fp);
     sscanf(buffer, "%lf", g_x);
-    fgets(buffer, 256, f);
+    fgets(buffer, 256, fp);
     sscanf(buffer, "%lf", g_y);
-    fgets(buffer, 256, f);
+    fgets(buffer, 256, fp);
     sscanf(buffer, "%lf", tau);
-    fgets(buffer, 256, f);
+    fgets(buffer, 256, fp);
     sscanf(buffer, "%lf", omega);
-    fgets(buffer, 256, f);
+    fgets(buffer, 256, fp);
     sscanf(buffer, "%lf", epsilon);
-    fgets(buffer, 256, f);
+    fgets(buffer, 256, fp);
     sscanf(buffer, "%d", max_it);
-    fgets(buffer, 256, f);
+    fgets(buffer, 256, fp);
     sscanf(buffer, "%d", n_print);
 
-    fclose(f);
+    fclose(fp);
 
     return 0;
 }

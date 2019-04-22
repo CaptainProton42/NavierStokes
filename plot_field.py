@@ -16,11 +16,12 @@ class myPillow(anim.PillowWriter):
 #constants
 FRAMENUM = 900	# number of files/frames to animate
 FPS = 30
+DIM = 129
 
-OUT_DIR = "out"
+OUT_DIR = "out_Re_10000_f_10"
 
-u = np.genfromtxt(OUT_DIR + "/0_u.txt", skip_header=3)[1:200, 1:200]
-v = np.genfromtxt(OUT_DIR + "/0_v.txt", skip_header=3)[1:200, 1:200]
+u = np.genfromtxt(OUT_DIR + "/0_u.txt", skip_header=3)[1:DIM, 1:DIM]
+v = np.genfromtxt(OUT_DIR + "/0_v.txt", skip_header=3)[1:DIM, 1:DIM]
 s = np.sqrt(np.power(u, 2) + np.power(v, 2))
 
 u_red = resize(u, (11, 11))
@@ -60,8 +61,8 @@ def animate(n):
         N += 1
         new_frame = True
     if (new_frame):
-        u = np.genfromtxt(OUT_DIR + '/'+ str(N)+'_u.txt', skip_header=3)[1:200, 1:200]
-        v = np.genfromtxt(OUT_DIR + '/'+ str(N)+'_v.txt', skip_header=3)[1:200, 1:200]
+        u = np.genfromtxt(OUT_DIR + '/'+ str(N)+'_u.txt', skip_header=3)[1:DIM, 1:DIM]
+        v = np.genfromtxt(OUT_DIR + '/'+ str(N)+'_v.txt', skip_header=3)[1:DIM, 1:DIM]
         s = np.sqrt(np.power(u, 2) + np.power(v, 2))
         speed.set_data(s)
 
