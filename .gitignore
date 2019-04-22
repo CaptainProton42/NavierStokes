@@ -5,5 +5,7 @@ main
 # Ignore gifs and pdfs in root but not in media subfolder.
 *.gif
 *.pdf
+*.png
 !/media/*.gif
 !/media/*.pdf
+!/media/*.png

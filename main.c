@@ -28,43 +28,46 @@
 
 int main()
 {
-	double** u;
-	double** v;
-	double** p;
+    // Grid pointers.
+	double** u;     // velocity x-component
+	double** v;     // velocity y-component
+	double** p;     // pressure
 
-    double** F;
-    double** G;
-    double** res;
-    double** RHS;
+    double** F;     // F term
+    double** G;     // G term
+    double** res;   // SOR residuum
+    double** RHS;   // RHS of poisson equation
 
-    int i_max, j_max; // Dimensions of the grid.
-    double a, b; // Sizes of the grid.
-    double Re; // Reynolds number;
-    double delta_t, delta_x, delta_y; // Step sizes.
-    double gamma;
-    double T; // Max time.
-    double g_x;
-    double g_y;
-    double tau;
-    double omega;
-    double epsilon;
-    int max_it;
-    int n_print;
-    int problem;
-    double f;
+    // Simulation parameters.
+    int i_max, j_max;                   // number of grid points in each direction
+    double a, b;                        // sizes of the grid
+    double Re;                          // reynolds number
+    double delta_t, delta_x, delta_y;   // step sizes
+    double gamma;                       // weight for Donor-Cell-stencil
+    double T;                           // max time for integration
+    double g_x;                         // x-component of g
+    double g_y;                         // y-component of g
+    double tau;                         // security factor for adaptive step size
+    double omega;                       // relaxation parameter
+    double epsilon;                     // relative tolerance for SOR
+    int max_it;                         // maximum iterations for SOR
+    int n_print;                        // output to file every ..th step
+    int problem;                        // problem type
+    double f;                           // frequency of periodic boundary conditions (if problem == 2)
 
+    // Initialize all parameters.
 	init(&problem, &f, &i_max, &j_max, &a, &b, &Re, &T, &g_x, &g_y, &tau, &omega, &epsilon, &max_it, &n_print);
     printf("Initialized!\n");
 
+    // Set step size in space.
     delta_x = a / i_max;
     delta_y = b / j_max;
 
-
+    // Allocate memory for grids.
     allocate_memory(&u, &v, &p, &res, &RHS, &F, &G, i_max, j_max);
-
     printf("Memory allocated.\n");
 
-    // Steps.
+    // Time loop.
     double t = 0;
     int i, j;
     int n = 0;
@@ -76,9 +79,7 @@ int main()
     	// Adaptive stepsize and weight factor for Donor-Cell
         double u_max = max_mat(i_max, j_max, u);
         double v_max = max_mat(i_max, j_max, v);
-
     	delta_t = tau * n_min(3, Re / 2.0 / ( 1.0 / delta_x / delta_x + 1.0 / delta_y / delta_y ), delta_x / fabs(u_max), delta_y / fabs(v_max));
-
         gamma = fmax(u_max * delta_t / delta_x, v_max * delta_t / delta_y);
 
         // Set boundary conditions.
@@ -110,11 +111,10 @@ int main()
                 RHS[i][j] = 1.0 / delta_t * ((F[i][j] - F[i-1][j])/delta_x + (G[i][j] - G[i][j-1])/delta_y);
             }
         }
-
         printf("RHS calculated!\n");
 
+        // Execute SOR step.
         if (SOR(p, i_max, j_max, delta_x, delta_y, res, RHS, omega, epsilon, max_it) == -1) printf("Maximum SOR iterations exceeded!\n");
-
         printf("SOR complete!\n");
 
         // Update velocities.
@@ -124,8 +124,9 @@ int main()
                 if (j <= j_max - 1) v[i][j] = G[i][j] - delta_t * dp_dy(p, i, j, delta_y);
             }
         }
-
         printf("Velocities updatet!\n");
+
+        // Print to file every ..th step.
         if (n % n_print == 0) {
             char out_prefix[12];
             sprintf(out_prefix, "out/%d", n_out);
@@ -137,6 +138,7 @@ int main()
         n++;
     }
 
+    // Free grid memory.
     free_memory(&u, &v, &p, &res, &RHS, &F, &G);
     return 0;
 }
