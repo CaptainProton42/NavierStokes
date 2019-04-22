@@ -3,7 +3,7 @@ Done as work for university, the aim of this project is to implement a numeric s
 ![](media/flow_100.gif)
 ![](media/pressure_100.gif)
 
-<img width="45%" src="media/gia_u.png"> <img width="45%" src="media/gia_v.png">
+<img width="45%" src="media/ghia_u.png"> <img width="45%" src="media/ghia_v.png">
 
 ![](media/flow_10K_vortex.gif)
 ![](media/pressure_10K_vortex.gif)
