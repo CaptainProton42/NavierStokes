@@ -3,8 +3,7 @@ Done as work for university, the aim of this project is to implement a numeric s
 ![](media/flow_100.gif)
 ![](media/pressure_100.gif)
 
-![](media/gia_u.png)
-![](media/gia_v.png)
+![](media/gia_u.png) ![](media/gia_v.png)
 
 # Building
 
