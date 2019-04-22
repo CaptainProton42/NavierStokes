@@ -14,18 +14,18 @@ This graph shows which files directly or indirectly include this file\+:
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{io_8h_a36e16e11106e65d1aafdbf378d4a778f}\label{io_8h_a36e16e11106e65d1aafdbf378d4a778f}} 
-int \hyperlink{io_8h_a36e16e11106e65d1aafdbf378d4a778f}{init} (int $\ast$i\+\_\+max, int $\ast$j\+\_\+max, double $\ast$a, double $\ast$b, double $\ast$Re, double $\ast$T, double $\ast$delta\+\_\+x, double $\ast$delta\+\_\+y)
+\mbox{\Hypertarget{io_8h_a7364f7d25925ae126323c28a1fe7a9f1}\label{io_8h_a7364f7d25925ae126323c28a1fe7a9f1}} 
+int \hyperlink{io_8h_a7364f7d25925ae126323c28a1fe7a9f1}{init} (int $\ast$problem, double $\ast$f, int $\ast$i\+\_\+max, int $\ast$j\+\_\+max, double $\ast$a, double $\ast$b, double $\ast$Re, double $\ast$T, double $\ast$g\+\_\+x, double $\ast$g\+\_\+y, double $\ast$tau, double $\ast$omega, double $\ast$epsilon, int $\ast$max\+\_\+it, int $\ast$n\+\_\+print)
 \begin{DoxyCompactList}\small\item\em Initializes given parameters. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{io_8h_a24bdbf79b01b238f2c2531a5c9d37399}\label{io_8h_a24bdbf79b01b238f2c2531a5c9d37399}} 
-int \hyperlink{io_8h_a24bdbf79b01b238f2c2531a5c9d37399}{output} (int i\+\_\+max, int j\+\_\+max, double $\ast$$\ast$u, double $\ast$$\ast$v, double $\ast$$\ast$p, const char $\ast$prefix)
+\mbox{\Hypertarget{io_8h_a8af88a37b0ec8a64bc2eb515ba5c7ff6}\label{io_8h_a8af88a37b0ec8a64bc2eb515ba5c7ff6}} 
+int \hyperlink{io_8h_a8af88a37b0ec8a64bc2eb515ba5c7ff6}{output} (int i\+\_\+max, int j\+\_\+max, double $\ast$$\ast$u, double $\ast$$\ast$v, double $\ast$$\ast$p, double t, double a, double b, const char $\ast$prefix)
 \begin{DoxyCompactList}\small\item\em Writes grid values to disk. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{io_8h_a8d489c65d267a94951d8f543e8891bbc}\label{io_8h_a8d489c65d267a94951d8f543e8891bbc}} 
-double \hyperlink{io_8h_a8d489c65d267a94951d8f543e8891bbc}{smallest\+\_\+number} (int i\+\_\+max, double $\ast$u)
-\begin{DoxyCompactList}\small\item\em Gives smallest entry of a vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{io_8h_a64f4eb5c5521ed1248deb5558afdb3dc}\label{io_8h_a64f4eb5c5521ed1248deb5558afdb3dc}} 
-double \hyperlink{io_8h_a64f4eb5c5521ed1248deb5558afdb3dc}{biggest\+\_\+number} (int i\+\_\+max, int j\+\_\+max, double $\ast$$\ast$u)
-\begin{DoxyCompactList}\small\item\em Gives greatest entry of an array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{io_8h_a47ccf50dc2375910234d2cb5b367f4e1}\label{io_8h_a47ccf50dc2375910234d2cb5b367f4e1}} 
+double \hyperlink{io_8h_a47ccf50dc2375910234d2cb5b367f4e1}{max\+\_\+mat} (int i\+\_\+max, int j\+\_\+max, double $\ast$$\ast$u)
+\begin{DoxyCompactList}\small\item\em Gives greatest entry of an array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{io_8h_a7a51a1f48925fc8c4dab297eb6ae4f6a}\label{io_8h_a7a51a1f48925fc8c4dab297eb6ae4f6a}} 
+double {\bfseries n\+\_\+min} (int num,...)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -35,10 +35,5 @@ In-\/ and outputs.
 Hollweck, Wigg 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-10 April 2019 Here typically goes a more extensive explanation of what the header defines. Doxygens tags are words preceeded by either a backslash \textbackslash{} or by an at symbol @. 
+10 April 2019 
 \end{DoxyDate}
-\begin{DoxySeeAlso}{See also}
-\href{http://www.stack.nl/~dimitri/doxygen/docblocks.html}{\tt http\+://www.\+stack.\+nl/$\sim$dimitri/doxygen/docblocks.\+html} 
-
-\href{http://www.stack.nl/~dimitri/doxygen/commands.html}{\tt http\+://www.\+stack.\+nl/$\sim$dimitri/doxygen/commands.\+html} 
-\end{DoxySeeAlso}

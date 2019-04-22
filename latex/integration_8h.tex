@@ -2,7 +2,7 @@
 \label{integration_8h}\index{integration.\+h@{integration.\+h}}
 
 
-Stencils.  
+Implements stencils, calculation of F and G as well as the S\+OR algorithm.  
 
 
 This graph shows which files directly or indirectly include this file\+:
@@ -32,12 +32,12 @@ double \hyperlink{integration_8h_aedfca9d12ef552aa756d4438cb0863d6}{dp\+\_\+dx} 
 \begin{DoxyCompactList}\small\item\em Stencil for $\frac{dp}{dx}$. \end{DoxyCompactList}\item 
 double \hyperlink{integration_8h_ad097bee45ad4ab4ec81b5ca94cb231d1}{dp\+\_\+dy} (double $\ast$$\ast$p, int i, int j, double delta\+\_\+y)
 \begin{DoxyCompactList}\small\item\em Stencil for $\frac{dp}{d<}$. \end{DoxyCompactList}\item 
-int \hyperlink{integration_8h_acadb87ee19440f424e8b0df19ddbe314}{S\+OR} (double $\ast$$\ast$p, int i\+\_\+max, int j\+\_\+max, double delta\+\_\+x, double delta\+\_\+y, double $\ast$$\ast$res, double $\ast$$\ast$R\+HS, double omega, double eps)
+int \hyperlink{integration_8h_a87105c98af771602714260c6eeb14cc4}{S\+OR} (double $\ast$$\ast$p, int i\+\_\+max, int j\+\_\+max, double delta\+\_\+x, double delta\+\_\+y, double $\ast$$\ast$res, double $\ast$$\ast$R\+HS, double omega, double eps, int max\+\_\+it)
 \begin{DoxyCompactList}\small\item\em Implements the successive overrelaxation algorithm for calculating new pressure grid. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Stencils. 
+Implements stencils, calculation of F and G as well as the S\+OR algorithm. 
 
 \begin{DoxyAuthor}{Author}
 Hollweck, Wigg 
@@ -326,11 +326,11 @@ Calculate F and G terms.
 \begin{DoxyReturn}{Returns}
 0 on success. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{integration_8h_acadb87ee19440f424e8b0df19ddbe314}\label{integration_8h_acadb87ee19440f424e8b0df19ddbe314}} 
+\mbox{\Hypertarget{integration_8h_a87105c98af771602714260c6eeb14cc4}\label{integration_8h_a87105c98af771602714260c6eeb14cc4}} 
 \index{integration.\+h@{integration.\+h}!S\+OR@{S\+OR}}
 \index{S\+OR@{S\+OR}!integration.\+h@{integration.\+h}}
 \subsubsection{\texorpdfstring{S\+O\+R()}{SOR()}}
-{\footnotesize\ttfamily int S\+OR (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{p,  }\item[{int}]{i\+\_\+max,  }\item[{int}]{j\+\_\+max,  }\item[{double}]{delta\+\_\+x,  }\item[{double}]{delta\+\_\+y,  }\item[{double $\ast$$\ast$}]{res,  }\item[{double $\ast$$\ast$}]{R\+HS,  }\item[{double}]{omega,  }\item[{double}]{eps }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int S\+OR (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{p,  }\item[{int}]{i\+\_\+max,  }\item[{int}]{j\+\_\+max,  }\item[{double}]{delta\+\_\+x,  }\item[{double}]{delta\+\_\+y,  }\item[{double $\ast$$\ast$}]{res,  }\item[{double $\ast$$\ast$}]{R\+HS,  }\item[{double}]{omega,  }\item[{double}]{eps,  }\item[{int}]{max\+\_\+it }\end{DoxyParamCaption})}
 
 
 

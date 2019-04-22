@@ -86,30 +86,26 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a36e16e11106e65d1aafdbf378d4a778f"><td class="memItemLeft" align="right" valign="top"><a id="a36e16e11106e65d1aafdbf378d4a778f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a36e16e11106e65d1aafdbf378d4a778f">init</a> (int *i_max, int *j_max, double *a, double *b, double *Re, double *T, double *delta_x, double *delta_y)</td></tr>
-<tr class="memdesc:a36e16e11106e65d1aafdbf378d4a778f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes given parameters. <br /></td></tr>
-<tr class="separator:a36e16e11106e65d1aafdbf378d4a778f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24bdbf79b01b238f2c2531a5c9d37399"><td class="memItemLeft" align="right" valign="top"><a id="a24bdbf79b01b238f2c2531a5c9d37399"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a24bdbf79b01b238f2c2531a5c9d37399">output</a> (int i_max, int j_max, double **u, double **v, double **p, const char *prefix)</td></tr>
-<tr class="memdesc:a24bdbf79b01b238f2c2531a5c9d37399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes grid values to disk. <br /></td></tr>
-<tr class="separator:a24bdbf79b01b238f2c2531a5c9d37399"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d489c65d267a94951d8f543e8891bbc"><td class="memItemLeft" align="right" valign="top"><a id="a8d489c65d267a94951d8f543e8891bbc"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a8d489c65d267a94951d8f543e8891bbc">smallest_number</a> (int i_max, double *u)</td></tr>
-<tr class="memdesc:a8d489c65d267a94951d8f543e8891bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives smallest entry of a vector. <br /></td></tr>
-<tr class="separator:a8d489c65d267a94951d8f543e8891bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64f4eb5c5521ed1248deb5558afdb3dc"><td class="memItemLeft" align="right" valign="top"><a id="a64f4eb5c5521ed1248deb5558afdb3dc"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a64f4eb5c5521ed1248deb5558afdb3dc">biggest_number</a> (int i_max, int j_max, double **u)</td></tr>
-<tr class="memdesc:a64f4eb5c5521ed1248deb5558afdb3dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives greatest entry of an array. <br /></td></tr>
-<tr class="separator:a64f4eb5c5521ed1248deb5558afdb3dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7364f7d25925ae126323c28a1fe7a9f1"><td class="memItemLeft" align="right" valign="top"><a id="a7364f7d25925ae126323c28a1fe7a9f1"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a7364f7d25925ae126323c28a1fe7a9f1">init</a> (int *problem, double *f, int *i_max, int *j_max, double *a, double *b, double *Re, double *T, double *g_x, double *g_y, double *tau, double *omega, double *epsilon, int *max_it, int *n_print)</td></tr>
+<tr class="memdesc:a7364f7d25925ae126323c28a1fe7a9f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes given parameters. <br /></td></tr>
+<tr class="separator:a7364f7d25925ae126323c28a1fe7a9f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8af88a37b0ec8a64bc2eb515ba5c7ff6"><td class="memItemLeft" align="right" valign="top"><a id="a8af88a37b0ec8a64bc2eb515ba5c7ff6"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a8af88a37b0ec8a64bc2eb515ba5c7ff6">output</a> (int i_max, int j_max, double **u, double **v, double **p, double t, double a, double b, const char *prefix)</td></tr>
+<tr class="memdesc:a8af88a37b0ec8a64bc2eb515ba5c7ff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes grid values to disk. <br /></td></tr>
+<tr class="separator:a8af88a37b0ec8a64bc2eb515ba5c7ff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47ccf50dc2375910234d2cb5b367f4e1"><td class="memItemLeft" align="right" valign="top"><a id="a47ccf50dc2375910234d2cb5b367f4e1"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a47ccf50dc2375910234d2cb5b367f4e1">max_mat</a> (int i_max, int j_max, double **u)</td></tr>
+<tr class="memdesc:a47ccf50dc2375910234d2cb5b367f4e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives greatest entry of an array. <br /></td></tr>
+<tr class="separator:a47ccf50dc2375910234d2cb5b367f4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a51a1f48925fc8c4dab297eb6ae4f6a"><td class="memItemLeft" align="right" valign="top"><a id="a7a51a1f48925fc8c4dab297eb6ae4f6a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>n_min</b> (int num,...)</td></tr>
+<tr class="separator:a7a51a1f48925fc8c4dab297eb6ae4f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>In- and outputs. </p>
 <dl class="section author"><dt>Author</dt><dd>Hollweck, Wigg </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>10 April 2019 Here typically goes a more extensive explanation of what the header defines. Doxygens tags are words preceeded by either a backslash \ or by an at symbol @. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.stack.nl/~dimitri/doxygen/docblocks.html">http://www.stack.nl/~dimitri/doxygen/docblocks.html</a> </dd>
-<dd>
-<a href="http://www.stack.nl/~dimitri/doxygen/commands.html">http://www.stack.nl/~dimitri/doxygen/commands.html</a> </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>10 April 2019 </dd></dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

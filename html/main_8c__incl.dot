@@ -14,7 +14,7 @@ digraph "main.c"
   Node4 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node4 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node0 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="integration.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$integration_8h.html",tooltip="Stencils. "];
+  Node5 [label="integration.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$integration_8h.html",tooltip="Implements stencils, calculation of F and G as well as the SOR algorithm. "];
   Node0 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node6 [label="boundaries.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$boundaries_8h.html",tooltip="Implements boundary conditions. "];
   Node0 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];

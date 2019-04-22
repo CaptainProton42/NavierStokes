@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['fg',['FG',['../integration_8h.html#a0f07cee9a85e2c7f71fcea8792cf6228',1,'integration.c']]],
-  ['free_5fmemory',['free_memory',['../memory_8h.html#a819720edc7656215b89e49614a535766',1,'memory.c']]]
+  ['init',['init',['../io_8h.html#a7364f7d25925ae126323c28a1fe7a9f1',1,'io.c']]]
 ];
