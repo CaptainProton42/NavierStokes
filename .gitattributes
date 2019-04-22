@@ -1,3 +1,3 @@
 html/* linguist-vendored
 latex/* linguist-vendored
-*.nb linguist-vendored=false
+*.nb linguist-vendored
