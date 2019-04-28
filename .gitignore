@@ -9,4 +9,4 @@ main
 !/media/*.gif
 !/media/*.pdf
 !/media/*.png
-!/docs/*.png
+!/docs/html/*.png
