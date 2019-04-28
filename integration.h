@@ -148,12 +148,12 @@ int FG(double** F, double** G, double** u, double** v, int i_max, int j_max, dou
 double dp_dx(double** p, int i, int j, double delta_x);
 
 /**
- * @brief Stencil for \f$\frac{dp}{d<}\f$.
+ * @brief Stencil for \f$\frac{dp}{dy}\f$.
  * 
  * @param p Pressure grid.
  * @param i Index in x direction.
  * @param j Index in y direction.
- * @param delta_< Stepsize \f$\delta y\f$in y direction.
+ * @param delta_y Stepsize \f$\delta y\f$in y direction.
  * 
  * @retun \f$\frac{dp}{dy}\f$ at \f$p_{i,j}\f$
  */

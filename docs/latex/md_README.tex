@@ -1,6 +1,4 @@
-Done as work for university, the aim of this project is to implement a numeric solver for the Navier-\/\+Stokes equation for incompresible fluid flow using the method of finite differences. It is based on material handed out by the university which in return is mainly based on Griebel et al., 1998\+: {\itshape Numerical Simulation in Fluid Dynamics}. We implement the lid-\/driven cavity problem as a benchmark for our code and compare the results to those presented by Ghia et al., 1982\+: {\itshape High-\/\+Re solutions for incompressible flow using the Navier-\/\+Stokes equations and a multigrid method}. Lastly, we also experimented with rectangular box shapes and periodically oscillating boundary conditions.
-
- 
+Done as an assignment for university, the aim of this project is to implement a numeric solver for the Navier-\/\+Stokes equation for incompresible fluid flow using the method of finite differences. It is based on material handed out by the university which in return is mainly based on Griebel et al., 1998\+: {\itshape Numerical Simulation in Fluid Dynamics}. We implement the lid-\/driven cavity problem as a benchmark for our code and compare the results to those presented by Ghia et al., 1982\+: {\itshape High-\/\+Re solutions for incompressible flow using the Navier-\/\+Stokes equations and a multigrid method}. Lastly, we also experimented with rectangular box shapes and periodically oscillating boundary conditions.
 
  
 
@@ -12,4 +10,58 @@ The included makefile should work with gcc out of the box. Simply type {\ttfamil
 
 \section*{Parameters and Running}
 
-{\ttfamily parameters.\+txt} stores all necessary information to run a simulation. The file is comented so any adjustments you\textquotesingle{}d want to make should be self-\/explanatory. A simulation can be run by executing {\ttfamily main}, just type {\ttfamily ./main}. Plots can be created via the included {\ttfamily .py} scripts. The scripts might need to be tweaked depending on your simulation parameters but are also commented. Make sure to create the directories {\ttfamily obj} and {\ttfamily out} by yourself before building or running, respectively. 
+{\ttfamily parameters.\+txt} stores all necessary information to run a simulation. The file is comented so any adjustments you\textquotesingle{}d want to make should be self-\/explanatory. A simulation can be run by executing {\ttfamily main}, just type {\ttfamily ./main}. Plots can be created via the included {\ttfamily .py} scripts. The scripts might need to be tweaked depending on your simulation parameters but are also commented. Make sure to create the directories {\ttfamily obj} and {\ttfamily out} by yourself before building or running, respectively.
+
+For more detailed descriptions of the code take a look at the \href{https://captainproton42.github.io/NavierStokes/}{\tt docs}.
+
+\section*{Results}
+
+Below the results we obtained for different parameters as animations.
+
+\subsection*{Lid-\/\+Driven Cacvity}
+
+\subsubsection*{Re = 10}
+
+ 
+
+\subsubsection*{Re = 100}
+
+ 
+
+\subsubsection*{Re = 1000}
+
+ 
+
+\subsubsection*{Re = 10000}
+
+ 
+
+\subsection*{Different Resolutions}
+
+\subsubsection*{65x65}
+
+ 
+
+\subsubsection*{257x257}
+
+ 
+
+\subsection*{Rectangular Geometries}
+
+\subsubsection*{Portrait}
+
+ 
+
+\subsubsection*{Landscape}
+
+ 
+
+\subsection*{Periodic Boundary Conditions}
+
+\subsubsection*{Re = 100}
+
+ 
+
+\subsubsection*{Re = 10000}
+
+  

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NumericalsolutionoftheNavier-Stokesequations.: integration.h File Reference</title>
+<title>Numerical Solution of the Navier-Stokes Equations: integration.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">NumericalsolutionoftheNavier-Stokesequations.
+   <div id="projectname">Numerical Solution of the Navier-Stokes Equations
    </div>
   </td>
  </tr>
@@ -108,7 +108,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:aedfca9d12ef552aa756d4438cb0863d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stencil for <img class="formulaInl" alt="$\frac{dp}{dx}$" src="form_21.png"/>.  <a href="#aedfca9d12ef552aa756d4438cb0863d6">More...</a><br /></td></tr>
 <tr class="separator:aedfca9d12ef552aa756d4438cb0863d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad097bee45ad4ab4ec81b5ca94cb231d1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="integration_8h.html#ad097bee45ad4ab4ec81b5ca94cb231d1">dp_dy</a> (double **p, int i, int j, double delta_y)</td></tr>
-<tr class="memdesc:ad097bee45ad4ab4ec81b5ca94cb231d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stencil for <img class="formulaInl" alt="$\frac{dp}{d&lt;}$" src="form_23.png"/>.  <a href="#ad097bee45ad4ab4ec81b5ca94cb231d1">More...</a><br /></td></tr>
+<tr class="memdesc:ad097bee45ad4ab4ec81b5ca94cb231d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stencil for <img class="formulaInl" alt="$\frac{dp}{dy}$" src="form_24.png"/>.  <a href="#ad097bee45ad4ab4ec81b5ca94cb231d1">More...</a><br /></td></tr>
 <tr class="separator:ad097bee45ad4ab4ec81b5ca94cb231d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87105c98af771602714260c6eeb14cc4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="integration_8h.html#a87105c98af771602714260c6eeb14cc4">SOR</a> (double **p, int i_max, int j_max, double delta_x, double delta_y, double **res, double **RHS, double omega, double eps, int max_it)</td></tr>
 <tr class="memdesc:a87105c98af771602714260c6eeb14cc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements the successive overrelaxation algorithm for calculating new pressure grid.  <a href="#a87105c98af771602714260c6eeb14cc4">More...</a><br /></td></tr>
@@ -422,18 +422,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Stencil for <img class="formulaInl" alt="$\frac{dp}{d&lt;}$" src="form_23.png"/>. </p>
+<p>Stencil for <img class="formulaInl" alt="$\frac{dp}{dy}$" src="form_24.png"/>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p</td><td>Pressure grid. </td></tr>
     <tr><td class="paramname">i</td><td>Index in x direction. </td></tr>
     <tr><td class="paramname">j</td><td>Index in y direction. </td></tr>
-    <tr><td class="paramname">delta_&lt;</td><td>Stepsize <img class="formulaInl" alt="$\delta y$" src="form_19.png"/>in y direction.</td></tr>
+    <tr><td class="paramname">delta_y</td><td>Stepsize <img class="formulaInl" alt="$\delta y$" src="form_19.png"/>in y direction.</td></tr>
   </table>
   </dd>
 </dl>
 <p><img class="formulaInl" alt="$\frac{dp}{dy}$" src="form_24.png"/> at <img class="formulaInl" alt="$p_{i,j}$" src="form_22.png"/></p>
-<p>Stencil for <img class="formulaInl" alt="$\frac{dp}{d&lt;}$" src="form_23.png"/>. </p>
+<p>Stencil for <img class="formulaInl" alt="$\frac{dp}{dy}$" src="form_24.png"/>. </p>
 
 </div>
 </div>

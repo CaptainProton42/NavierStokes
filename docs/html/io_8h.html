@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NumericalsolutionoftheNavier-Stokesequations.: io.h File Reference</title>
+<title>Numerical Solution of the Navier-Stokes Equations: io.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">NumericalsolutionoftheNavier-Stokesequations.
+   <div id="projectname">Numerical Solution of the Navier-Stokes Equations
    </div>
   </td>
  </tr>
@@ -88,25 +88,194 @@ This graph shows which files directly or indirectly include this file:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a7364f7d25925ae126323c28a1fe7a9f1"><td class="memItemLeft" align="right" valign="top"><a id="a7364f7d25925ae126323c28a1fe7a9f1"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a7364f7d25925ae126323c28a1fe7a9f1">init</a> (int *problem, double *f, int *i_max, int *j_max, double *a, double *b, double *Re, double *T, double *g_x, double *g_y, double *tau, double *omega, double *epsilon, int *max_it, int *n_print)</td></tr>
-<tr class="memdesc:a7364f7d25925ae126323c28a1fe7a9f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes given parameters. <br /></td></tr>
+<tr class="memdesc:a7364f7d25925ae126323c28a1fe7a9f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes parameters to variables given by pointers. <br /></td></tr>
 <tr class="separator:a7364f7d25925ae126323c28a1fe7a9f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8af88a37b0ec8a64bc2eb515ba5c7ff6"><td class="memItemLeft" align="right" valign="top"><a id="a8af88a37b0ec8a64bc2eb515ba5c7ff6"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a8af88a37b0ec8a64bc2eb515ba5c7ff6">output</a> (int i_max, int j_max, double **u, double **v, double **p, double t, double a, double b, const char *prefix)</td></tr>
-<tr class="memdesc:a8af88a37b0ec8a64bc2eb515ba5c7ff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes grid values to disk. <br /></td></tr>
+<tr class="memitem:a8af88a37b0ec8a64bc2eb515ba5c7ff6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a8af88a37b0ec8a64bc2eb515ba5c7ff6">output</a> (int i_max, int j_max, double **u, double **v, double **p, double t, double a, double b, const char *prefix)</td></tr>
+<tr class="memdesc:a8af88a37b0ec8a64bc2eb515ba5c7ff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes grid values to disk.  <a href="#a8af88a37b0ec8a64bc2eb515ba5c7ff6">More...</a><br /></td></tr>
 <tr class="separator:a8af88a37b0ec8a64bc2eb515ba5c7ff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47ccf50dc2375910234d2cb5b367f4e1"><td class="memItemLeft" align="right" valign="top"><a id="a47ccf50dc2375910234d2cb5b367f4e1"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a47ccf50dc2375910234d2cb5b367f4e1">max_mat</a> (int i_max, int j_max, double **u)</td></tr>
-<tr class="memdesc:a47ccf50dc2375910234d2cb5b367f4e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives greatest entry of an array. <br /></td></tr>
+<tr class="memitem:a47ccf50dc2375910234d2cb5b367f4e1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a47ccf50dc2375910234d2cb5b367f4e1">max_mat</a> (int i_max, int j_max, double **u)</td></tr>
+<tr class="memdesc:a47ccf50dc2375910234d2cb5b367f4e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives greatest entry of a matrix.  <a href="#a47ccf50dc2375910234d2cb5b367f4e1">More...</a><br /></td></tr>
 <tr class="separator:a47ccf50dc2375910234d2cb5b367f4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a51a1f48925fc8c4dab297eb6ae4f6a"><td class="memItemLeft" align="right" valign="top"><a id="a7a51a1f48925fc8c4dab297eb6ae4f6a"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>n_min</b> (int num,...)</td></tr>
+<tr class="memitem:a7a51a1f48925fc8c4dab297eb6ae4f6a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a7a51a1f48925fc8c4dab297eb6ae4f6a">n_min</a> (int num,...)</td></tr>
+<tr class="memdesc:a7a51a1f48925fc8c4dab297eb6ae4f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns smallest value of arbitrarily many values.  <a href="#a7a51a1f48925fc8c4dab297eb6ae4f6a">More...</a><br /></td></tr>
 <tr class="separator:a7a51a1f48925fc8c4dab297eb6ae4f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>In- and outputs. </p>
 <dl class="section author"><dt>Author</dt><dd>Hollweck, Wigg </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>10 April 2019 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a47ccf50dc2375910234d2cb5b367f4e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47ccf50dc2375910234d2cb5b367f4e1">&#9670;&nbsp;</a></span>max_mat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double max_mat </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i_max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j_max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>u</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gives greatest entry of a matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_max</td><td>Size of matrix in x-direction. </td></tr>
+    <tr><td class="paramname">j_max</td><td>Size of matrix in y-direction. </td></tr>
+    <tr><td class="paramname">u</td><td>Matrix as pointer to pointer.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Greatest entry of u. </dd></dl>
+
+</div>
+</div>
+<a id="a7a51a1f48925fc8c4dab297eb6ae4f6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a51a1f48925fc8c4dab297eb6ae4f6a">&#9670;&nbsp;</a></span>n_min()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double n_min </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns smallest value of arbitrarily many values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>Number of arguments. </td></tr>
+    <tr><td class="paramname">...</td><td>Arbitrary number of arguments. Should be double. The function will return the smallest of the values.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Smallest of all values. </dd></dl>
+
+</div>
+</div>
+<a id="a8af88a37b0ec8a64bc2eb515ba5c7ff6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8af88a37b0ec8a64bc2eb515ba5c7ff6">&#9670;&nbsp;</a></span>output()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int output </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i_max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j_max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>prefix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes grid values to disk. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i_max</td><td>Grid size in x-direction. </td></tr>
+    <tr><td class="paramname">j_max</td><td>Grid size in y-direction. </td></tr>
+    <tr><td class="paramname">u</td><td>Velocity grid in x-direction. </td></tr>
+    <tr><td class="paramname">v</td><td>Velocity grid in y-direction. </td></tr>
+    <tr><td class="paramname">p</td><td>Pressure grid. </td></tr>
+    <tr><td class="paramname">t</td><td>Current time of integration. </td></tr>
+    <tr><td class="paramname">a</td><td>Physical size of grid in x-direction. </td></tr>
+    <tr><td class="paramname">b</td><td>Physical size of grid in y-direction. </td></tr>
+    <tr><td class="paramname">prefix</td><td>Filename prefix used for output files.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

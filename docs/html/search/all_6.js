@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['output',['output',['../io_8h.html#a8af88a37b0ec8a64bc2eb515ba5c7ff6',1,'io.c']]]
+  ['n_5fmin',['n_min',['../io_8h.html#a7a51a1f48925fc8c4dab297eb6ae4f6a',1,'io.c']]]
 ];

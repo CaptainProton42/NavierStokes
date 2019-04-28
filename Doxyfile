@@ -1,2 +1,2 @@
-PROJECT_NAME = Numerical solution of the Navier-Stokes equations.
+PROJECT_NAME = "Numerical Solution of the Navier-Stokes Equations"
 OUTPUT_DIRECTORY = docs

@@ -31,7 +31,7 @@ int \hyperlink{integration_8h_a0f07cee9a85e2c7f71fcea8792cf6228}{FG} (double $\a
 double \hyperlink{integration_8h_aedfca9d12ef552aa756d4438cb0863d6}{dp\+\_\+dx} (double $\ast$$\ast$p, int i, int j, double delta\+\_\+x)
 \begin{DoxyCompactList}\small\item\em Stencil for $\frac{dp}{dx}$. \end{DoxyCompactList}\item 
 double \hyperlink{integration_8h_ad097bee45ad4ab4ec81b5ca94cb231d1}{dp\+\_\+dy} (double $\ast$$\ast$p, int i, int j, double delta\+\_\+y)
-\begin{DoxyCompactList}\small\item\em Stencil for $\frac{dp}{d<}$. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Stencil for $\frac{dp}{dy}$. \end{DoxyCompactList}\item 
 int \hyperlink{integration_8h_a87105c98af771602714260c6eeb14cc4}{S\+OR} (double $\ast$$\ast$p, int i\+\_\+max, int j\+\_\+max, double delta\+\_\+x, double delta\+\_\+y, double $\ast$$\ast$res, double $\ast$$\ast$R\+HS, double omega, double eps, int max\+\_\+it)
 \begin{DoxyCompactList}\small\item\em Implements the successive overrelaxation algorithm for calculating new pressure grid. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -171,7 +171,7 @@ Stencil for $\frac{dp}{dx}$. \mbox{\Hypertarget{integration_8h_ad097bee45ad4ab4e
 
 
 
-Stencil for $\frac{dp}{d<}$. 
+Stencil for $\frac{dp}{dy}$. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -181,12 +181,12 @@ Stencil for $\frac{dp}{d<}$.
 \hline
 {\em j} & Index in y direction. \\
 \hline
-{\em delta\+\_\+$<$} & Stepsize $\delta y$in y direction.\\
+{\em delta\+\_\+y} & Stepsize $\delta y$in y direction.\\
 \hline
 \end{DoxyParams}
 $\frac{dp}{dy}$ at $p_{i,j}$
 
-Stencil for $\frac{dp}{d<}$. \mbox{\Hypertarget{integration_8h_a8b847eb312989f63cb297d850cd9606d}\label{integration_8h_a8b847eb312989f63cb297d850cd9606d}} 
+Stencil for $\frac{dp}{dy}$. \mbox{\Hypertarget{integration_8h_a8b847eb312989f63cb297d850cd9606d}\label{integration_8h_a8b847eb312989f63cb297d850cd9606d}} 
 \index{integration.\+h@{integration.\+h}!du2\+\_\+dx@{du2\+\_\+dx}}
 \index{du2\+\_\+dx@{du2\+\_\+dx}!integration.\+h@{integration.\+h}}
 \subsubsection{\texorpdfstring{du2\+\_\+dx()}{du2\_dx()}}
