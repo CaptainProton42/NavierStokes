@@ -1,15 +1,15 @@
-2          # problem (1: lid-driven cavity, 2: periodic boundary)
+1           # problem (1: lid-driven cavity, 2: periodic boundary)
 1           # f: frequency of the periodic boundary conditions (only if problem = 2)
-129 	    # i_max
-129 	    # j_max
+257	        # i_max
+257        # j_max
 1.0	        # Side a length
 1.0	        # Side b length
-30.0 	    # Time to integrate
-100.0 	# Reynolds number
+60.0 	    # Time to integrate
+10000.0 	# Reynolds number
 0.0 	    # x-component of g
 0.0 	    # y-component of g
 1.0		    # Security factor tau.
 1.7         # Relaxation factor for SOR. (1.0 is Gauß-Seidel)
 0.0001      # Relative tolerance for SOR.
 500         # Maximum iterations for SOR.
-10           # Print results to file every nth step.
+1           # Print results to file every nth step.
