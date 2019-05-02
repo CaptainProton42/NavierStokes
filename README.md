@@ -18,56 +18,56 @@ Below the results we obtained for different parameters as animations.
 
 ### Re = 10
 
-![](media/flow_10.gif)
-![](media/pressure_10.gif)
+![](../media/media/flow_10.gif)
+![](../media/media/pressure_10.gif)
 
 ### Re = 100
 
-![](media/flow_100.gif)
-![](media/pressure_100.gif)
+![](../media/media/flow_100.gif)
+![](../media/media/pressure_100.gif)
 
 ### Re = 1000
 
-![](media/flow_1000.gif)
-![](media/pressure_1000.gif)
+![](../media/media/flow_1000.gif)
+![](../media/media/pressure_1000.gif)
 
 ### Re = 10000
 
-![](media/flow_10000.gif)
-![](media/pressure_10000.gif)
+![](../media/media/flow_10000.gif)
+![](../media/media/pressure_10000.gif)
 
 ## Different Resolutions
 
 ### 65x65
 
-![](media/flow_10000_x65.gif)
-![](media/pressure_10000_x65.gif)
+![](../media/media/flow_10000_x65.gif)
+![](../media/media/pressure_10000_x65.gif)
 
 ### 257x257
 
-![](media/flow_10000_x257.gif)
-![](media/pressure_10000_x257.gif)
+![](../media/media/flow_10000_x257.gif)
+![](../media/media/pressure_10000_x257.gif)
 
 ## Rectangular Geometries
 
 ### Portrait
 
-![](media/flow_10000_portrait.gif)
-![](media/pressure_10000_portrait.gif)
+![](../media/media/flow_10000_portrait.gif)
+![](../media/media/pressure_10000_portrait.gif)
 
 ### Landscape
 
-![](media/flow_10000_landscape.gif)
-![](media/pressure_10000_landscape.gif)
+![](../media/media/flow_10000_landscape.gif)
+![](../media/media/pressure_10000_landscape.gif)
 
 ## Periodic Boundary Conditions
 
 ### Re = 100
 
-![](media/flow_100_f1.gif)
-![](media/pressure_100_f1.gif)
+![](../media/media/flow_100_f1.gif)
+![](../media/media/pressure_100_f1.gif)
 
 ### Re = 10000
 
-![](media/flow_10000_f1.gif)
-![](media/pressure_10000_f1.gif)
+![](../media/media/flow_10000_f1.gif)
+![](../media/media/pressure_10000_f1.gif)
